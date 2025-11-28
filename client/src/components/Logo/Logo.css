@@ -1,0 +1,125 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo.small {
+  gap: 8px;
+}
+
+.logo.large {
+  gap: 16px;
+}
+
+.logo-icon {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo.small .logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.logo.medium .logo-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.logo.large .logo-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+}
+
+.steps {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.step {
+  background-color: white;
+  border-radius: 2px;
+}
+
+.logo.small .step {
+  width: 6px;
+}
+
+.logo.medium .step {
+  width: 8px;
+}
+
+.logo.large .step {
+  width: 10px;
+}
+
+.step1 {
+  height: 8px;
+}
+
+.step2 {
+  height: 14px;
+}
+
+.step3 {
+  height: 20px;
+}
+
+.logo.small .step1 {
+  height: 6px;
+}
+
+.logo.small .step2 {
+  height: 10px;
+}
+
+.logo.small .step3 {
+  height: 14px;
+}
+
+.logo.large .step1 {
+  height: 12px;
+}
+
+.logo.large .step2 {
+  height: 18px;
+}
+
+.logo.large .step3 {
+  height: 24px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo.small .logo-text {
+  font-size: 18px;
+}
+
+.logo.large .logo-text {
+  font-size: 32px;
+}

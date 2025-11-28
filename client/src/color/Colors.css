@@ -1,0 +1,23 @@
+:root {
+  /* Renklerinizi buraya kopyalayın */
+  --darkgrey: #393E46;
+  --lightgrey: #4C585B;
+  --grey: #9D9D9D;
+  --white: #ffffff;
+  --black: #000000;
+  --orange: #FFAF00;
+  --yellow: #F8DE22;
+  --neongreen: #1EAE98;
+  --darkorange: #DC5F00;
+  --darkred: #A41F13;
+  --purple: rgb(165, 131, 146);
+  --darkblue: #26355D;
+  --blue: #7EACB5;
+  
+  /* Semantic colors */
+  --primary: #3A86FF;
+  --secondary: #8338EC;
+  --background: #F8F9FA;
+  --border: #E9ECEF;
+  --text: #212529;
+}

@@ -1,0 +1,287 @@
+.landing {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.hero-actions a {
+  text-decoration: none;
+}
+
+.hero-image {
+  position: relative;
+  height: 400px;
+}
+
+.floating-card {
+  position: absolute;
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 24px var(--shadow);
+  animation: float 3s ease-in-out infinite;
+}
+
+.card-icon {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.floating-card span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.card-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.card-2 {
+  top: 50%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+.card-3 {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Features Section */
+.features {
+  background-color: var(--bg-secondary);
+  padding: 80px 24px;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.section-description {
+  font-size: 18px;
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.feature-card {
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.feature-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.feature-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* CTA Section */
+.cta {
+  padding: 80px 24px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+}
+
+.cta-description {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-content a {
+  text-decoration: none;
+}
+
+.cta-content .custom-button {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.cta-content .custom-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-image {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .cta-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 40px 16px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .custom-button {
+    width: 100%;
+  }
+
+  .features {
+    padding: 60px 16px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .cta {
+    padding: 60px 16px;
+  }
+}

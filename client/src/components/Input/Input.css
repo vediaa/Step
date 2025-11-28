@@ -1,0 +1,70 @@
+.input-wrapper {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.custom-input.with-icon {
+  padding-left: 48px;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.custom-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.custom-input.error {
+  border-color: var(--error-color);
+}
+
+.custom-input.error:focus {
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  color: var(--text-tertiary);
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.input-error {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--error-color);
+}

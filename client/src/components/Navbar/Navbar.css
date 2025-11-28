@@ -1,0 +1,48 @@
+.navbar {
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background-color: rgba(var(--bg-primary-rgb, 255, 255, 255), 0.95);
+}
+
+[data-theme="dark"] .navbar {
+  background-color: rgba(18, 18, 18, 0.95);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  text-decoration: none;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-actions a {
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .navbar-actions {
+    gap: 8px;
+  }
+
+  .navbar-actions .custom-button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}

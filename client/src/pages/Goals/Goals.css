@@ -1,0 +1,55 @@
+.goals-page {
+  padding: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.goals-header {
+  margin-bottom: 24px;
+}
+
+.goals-card {
+  margin-bottom: 24px;
+}
+
+.field-selection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.field-button {
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.field-button.active {
+  background-color: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.subsection-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+@media (max-width: 640px) {
+  .goals-page {
+    padding: 16px;
+  }
+
+  .field-selection {
+    grid-template-columns: 1fr;
+  }
+}

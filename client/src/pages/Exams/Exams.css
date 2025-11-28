@@ -1,0 +1,195 @@
+.exams-page {
+  padding: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.exams-header {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.subsection-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 24px 0 12px 0;
+}
+
+.exam-type-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.type-button {
+  padding: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.type-button.active {
+  background-color: var(--bg-tertiary);
+  color: white;
+  border-color: var(--bg-tertiary);
+}
+
+.score-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.score-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.subject-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.score-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.score-fields .input-wrapper {
+  margin-bottom: 0;
+}
+
+.net-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--success-color);
+  min-width: 70px;
+  text-align: center;
+}
+
+.total-net {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  padding: 20px;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+.total-value {
+  color: var(--primary-color);
+  font-size: 24px;
+  margin-left: 8px;
+}
+
+.previous-exams {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.exam-card {
+  position: relative;
+}
+
+.exam-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.exam-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.delete-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.exam-field {
+  color: var(--text-secondary);
+  margin: 8px 0;
+}
+
+.exam-total {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 12px 0;
+}
+
+.exam-details {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 12px 0;
+  white-space: pre-line;
+}
+
+.exam-goal {
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.exam-goal.success {
+  background-color: rgba(95, 158, 160, 0.1);
+  color: var(--success-color);
+}
+
+.exam-goal.error {
+  background-color: rgba(139, 0, 0, 0.1);
+  color: var(--primary-color);
+}
+
+@media (max-width: 640px) {
+  .exams-page {
+    padding: 16px;
+  }
+
+  .score-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .net-value {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+}

@@ -1,0 +1,140 @@
+.questions-page {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.questions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+}
+
+.filter-tab {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.filter-tab.active {
+  background-color: var(--accent-color);
+  color: #333;
+}
+
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.question-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.question-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--bg-tertiary);
+}
+
+.question-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.question-info {
+  flex: 1;
+}
+
+.question-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.question-date {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+.question-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+.action-button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.action-button.edit {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.action-button.edit:hover {
+  background-color: var(--bg-secondary);
+}
+
+.action-button.delete {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 18px;
+}
+
+.action-button.delete:hover {
+  background-color: var(--secondary-color);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-tertiary);
+  font-size: 18px;
+}
+
+@media (max-width: 640px) {
+  .questions-page {
+    padding: 16px;
+  }
+
+  .questions-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .questions-grid {
+    grid-template-columns: 1fr;
+  }
+}
