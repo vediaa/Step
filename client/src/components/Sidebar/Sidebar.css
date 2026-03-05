@@ -1,82 +1,98 @@
+/* Ana Sidebar Konteyneri */
 .sidebar {
-  width: 240px;
   height: 100vh;
-  background-color: var(--bg-primary);
-  border-right: 2px solid var(--border-color);
-  padding: 24px 0;
-  position: fixed;
-  left: 0;
-  top: 0;
+  background-color: #ffffff; /* Projene uygun rengi ayarla */
+  transition: width 0.3s ease; /* Pürüzsüz daralma animasyonu */
+  overflow-x: hidden; /* Daraldığında içeriğin taşmasını önler */
   display: flex;
   flex-direction: column;
-  z-index: 100;
 }
 
+/* Açık ve Kapalı Genişlikler */
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar.closed {
+  width: 80px;
+}
+
+/* Header (Logo ve Buton Kısmı) */
 .sidebar-header {
-  padding: 0 20px 24px 20px;
-  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  height: 70px;
+  
 }
 
+/* Logonun altındaki link çizgisini kaldırır */
 .sidebar-header a {
   text-decoration: none;
 }
 
-.sidebar-nav {
-  flex: 1;
-  padding: 24px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+/* Sidebar kapalıyken butonu ortala */
+.sidebar.closed .sidebar-header {
+  justify-content: center;
 }
 
+.logo-wrapper {
+  transition: opacity 0.2s ease;
+}
+
+.logo-wrapper.hidden {
+  opacity: 0;
+  display: none;
+}
+
+/* Toggle Butonu */
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+/* Menü Elemanları */
 .sidebar-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  color: var(--text-secondary);
+  padding: 15px 20px;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border-left: 3px solid transparent;
+  color: #555;
+  white-space: nowrap; /* Metnin alt satıra geçmesini önler */
 }
 
-.sidebar-item:hover {
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
-}
-
-.sidebar-item.active {
-  background-color: var(--bg-secondary);
-  color: var(--primary-color);
-  border-left-color: var(--primary-color);
-  font-weight: 600;
+/* Sidebar kapalıyken ikonları ortala */
+.sidebar.closed .sidebar-item {
+  justify-content: center;
+  padding: 35px 0;
 }
 
 .sidebar-icon {
-  font-size: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  /* 1. İkonun asıl boyutunu büyüten kısım: */
+  font-size: 20px;
+  min-width: 24px;
 }
 
+.sidebar.open .sidebar-icon {
+  margin-right: 15px; /* Sadece açıkken ikon ile yazı arasına boşluk koy */
+}
+
+/* Menü Yazıları (Labels) */
 .sidebar-label {
-  font-size: 15px;
+  transition: opacity 0.3s ease;
+  opacity: 1;
 }
 
-@media (max-width: 968px) {
-  .sidebar {
-    width: 70px;
-  }
-
-  .sidebar-label {
-    display: none;
-  }
-
-  .sidebar-item {
-    justify-content: center;
-  }
-
-  .sidebar-header {
-    display: flex;
-    justify-content: center;
-  }
+/* Sidebar kapalıyken yazıları gizle */
+.sidebar.closed .sidebar-label {
+  opacity: 0;
+  display: none;
 }
