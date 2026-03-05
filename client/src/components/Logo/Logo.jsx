@@ -10,7 +10,7 @@ const Logo = ({ size = "medium" }) => {
           <div className="step step3"></div>
         </div>
       </div>
-      <span className="logo-text">ExamApp</span>
+      <span className="logo-text">STEP</span>
     </div>
   );
 };

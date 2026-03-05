@@ -19,12 +19,34 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Form gönderme işlemi burada yapılacak
-    console.log("Login:", formData);
-    // Başarılı giriş sonrası dashboard'a yönlendir
-    window.location.href = "/dashboard";
+
+    try {
+      const response = await fetch("http://localhost:5001/api/auth/giris", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Token'ı kaydediyoruz
+        localStorage.setItem("token", data.token);
+        console.log("Giriş başarılı, token kaydedildi!");
+
+        // Dashboard'a yönlendir
+        window.location.href = "/dashboard";
+      } else {
+        alert(data.message || "Giriş başarısız.");
+      }
+    } catch (error) {
+      console.error("Giriş hatası:", error);
+      alert("Sunucuya bağlanılamadı.");
+    }
   };
 
   return (

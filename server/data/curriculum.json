@@ -1,0 +1,330 @@
+{
+  "tyt": [
+    {
+      "id": 1,
+      "name": "Türkçe",
+      "topics": [
+        { "id": 1, "name": "Sözcükte Anlam" },
+        { "id": 2, "name": "Söz Yorumu" },
+        { "id": 3, "name": "Deyim ve Atasözü" },
+        { "id": 4, "name": "Cümlede Anlam" },
+        { "id": 5, "name": "Paragraf" },
+        { "id": 6, "name": "Paragrafta Anlatım Teknikleri" },
+        { "id": 7, "name": "Paragrafta Düşünceyi Geliştirme Yolları" },
+        { "id": 8, "name": "Paragrafta Yapı" },
+        { "id": 9, "name": "Paragrafta Konu-Ana Düşünce" },
+        { "id": 10, "name": "Paragrafta Yardımcı Düşünce" },
+        { "id": 11, "name": "Ses Bilgisi" },
+        { "id": 12, "name": "Yazım Kuralları" },
+        { "id": 13, "name": "Noktalama İşaretleri" },
+        { "id": 14, "name": "Sözcükte Yapı/Ekler" },
+        { "id": 15, "name": "Sözcük Türleri" },
+        { "id": 16, "name": "İsimler" },
+        { "id": 17, "name": "Zamirler" },
+        { "id": 18, "name": "Sıfatlar" },
+        { "id": 19, "name": "Zarflar" },
+        { "id": 20, "name": "Edat – Bağlaç – Ünlem" },
+        { "id": 21, "name": "Fiiller" },
+        { "id": 22, "name": "Fiilde Anlam (Kip-Kişi-Yapı)" },
+        { "id": 23, "name": "Ek Fiil" },
+        { "id": 24, "name": "Fiilimsi" },
+        { "id": 25, "name": "Fiilde Çatı" },
+        { "id": 26, "name": "Sözcük Grupları" },
+        { "id": 27, "name": "Cümlenin Ögeleri" },
+        { "id": 28, "name": "Cümle Türleri" },
+        { "id": 29, "name": "Anlatım Bozukluğu" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Matematik",
+      "topics": [
+        { "id": 1, "name": "Temel Kavramlar" },
+        { "id": 2, "name": "Sayı Basamakları" },
+        { "id": 3, "name": "Bölme ve Bölünebilme" },
+        { "id": 4, "name": "EBOB – EKOK" },
+        { "id": 5, "name": "Rasyonel Sayılar" },
+        { "id": 6, "name": "Basit Eşitsizlikler" },
+        { "id": 7, "name": "Mutlak Değer" },
+        { "id": 8, "name": "Üslü Sayılar" },
+        { "id": 9, "name": "Köklü Sayılar" },
+        { "id": 10, "name": "Çarpanlara Ayırma" },
+        { "id": 11, "name": "Oran Orantı" },
+        { "id": 12, "name": "Denklem Çözme" },
+        { "id": 13, "name": "Problemler" },
+        { "id": 14, "name": "Sayı Problemleri" },
+        { "id": 15, "name": "Kesir Problemleri" },
+        { "id": 16, "name": "Yaş Problemleri" },
+        { "id": 17, "name": "Hareket Hız Problemleri" },
+        { "id": 18, "name": "İşçi Emek Problemleri" },
+        { "id": 19, "name": "Yüzde Problemleri" },
+        { "id": 20, "name": "Kar Zarar Problemleri" },
+        { "id": 21, "name": "Karışım Problemleri" },
+        { "id": 22, "name": "Grafik Problemleri" },
+        { "id": 23, "name": "Rutin Olmayan Problemleri" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Fizik",
+      "topics": [
+        { "id": 1, "name": "Fizik Bilimine Giriş" },
+        { "id": 2, "name": "Madde ve Özellikleri" },
+        { "id": 3, "name": "Sıvıların Kaldırma Kuvveti" },
+        { "id": 4, "name": "Basınç" },
+        { "id": 5, "name": "Isı, Sıcaklık ve Genleşme" },
+        { "id": 6, "name": "Hareket ve Kuvvet" },
+        { "id": 7, "name": "Dinamik" },
+        { "id": 8, "name": "İş, Güç ve Enerji" },
+        { "id": 9, "name": "Elektrik" },
+        { "id": 10, "name": "Manyetizma" },
+        { "id": 11, "name": "Dalgalar" },
+        { "id": 12, "name": "Optik" }
+      ]
+    },
+
+    {
+      "id": 4,
+      "name": "Biyoloji",
+      "topics": [
+        { "id": 1, "name": "Canlıların Ortak Özellikleri" },
+        { "id": 2, "name": "Canlıların Temel Bileşenleri" },
+        { "id": 3, "name": "Hücre ve Organeller" },
+        { "id": 4, "name": "Canlıların Sınıflandırılması" },
+        { "id": 5, "name": "Hücrede Bölünme" },
+        { "id": 6, "name": "Kalıtım" },
+        { "id": 7, "name": "Bitki Biyolojisi" },
+        { "id": 8, "name": "Ekosistem" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Kimya",
+      "topics": [
+        { "id": 1, "name": "Kimya Bilimi" },
+        { "id": 2, "name": "Atom ve Periyodik Sistem" },
+        { "id": 3, "name": "Kimyasal Türler Arası Etkileşimler" },
+        { "id": 4, "name": "Maddenin Halleri" },
+        { "id": 5, "name": "Doğa ve Kimya" },
+
+        { "id": 6, "name": "Kimyanın Temel Kanunları" },
+        { "id": 7, "name": "Karışımlar" },
+        { "id": 8, "name": "Asitler, Bazlar ve Tuzlar" },
+        { "id": 9, "name": "Kimya Her Yerde" },
+
+        { "id": 10, "name": "Modern Atom Teorisi" },
+        { "id": 11, "name": "Gazlar" },
+        { "id": 12, "name": "Sıvı Çözeltiler" },
+
+        { "id": 13, "name": "Organik Bileşikler" },
+        { "id": 14, "name": "Enerji Kaynakları" }
+      ]
+    },
+
+    {
+      "id": 6,
+      "name": "Coğrafya",
+      "topics": [
+        { "id": 1, "name": "İnsan ve Doğa" },
+        { "id": 2, "name": "Dünyanın Şekli ve Hareketleri" },
+        { "id": 3, "name": "Coğrafi Konum" },
+        { "id": 4, "name": "Harita Bilgisi" },
+        { "id": 5, "name": "Atmosfer ve Sıcaklık" },
+
+        { "id": 6, "name": "İklimler" },
+        { "id": 7, "name": "Basınç ve Rüzgarlar" },
+        { "id": 8, "name": "Nem ,Yağış ve Buharlaşma" },
+        { "id": 9, "name": "İç Kuvvetler/Dış Kuvvetler" },
+
+        { "id": 10, "name": "Su Toprak ve Bitkiler" },
+        { "id": 11, "name": "Nüfus Göç Yerleşme" },
+        { "id": 12, "name": "Türkiye'nin Yer şekilleri" },
+
+        { "id": 13, "name": "Ekonomik Faaliyetler" },
+        { "id": 14, "name": "Bölgeler ve Ülkeler" },
+        { "id": 15, "name": "Uluslararası Ulaşım Hatları" },
+        { "id": 16, "name": "Çevre ve Toplum" },
+        { "id": 17, "name": "Doğal Afetler" }
+      ]
+    },
+
+    {
+      "id": 7,
+      "name": "Tarih",
+      "topics": [
+        { "id": 1, "name": "Tarih Bilimine Giriş" },
+        { "id": 2, "name": "Uygarlığın Doğuşu ve İlk Uygarlıklar" },
+        { "id": 3, "name": "İlk Türk Devleteri" },
+        { "id": 4, "name": "İslam Tarihi ve Uygarlığı" },
+        { "id": 5, "name": "Türk-İslam Devletleri" },
+
+        { "id": 6, "name": "Türkler'in İlamiyeti Kabulü" },
+        { "id": 7, "name": "Türkiye Tarihi" },
+        { "id": 8, "name": "Beylikten Devlete" },
+        { "id": 9, "name": "Dünya Gücü: Omanlı Devleti" },
+
+        { "id": 10, "name": "Gerileme Devri" },
+        { "id": 11, "name": "Arayış Yılları" },
+        { "id": 12, "name": "Avrupa ve Osmanlı Devleti" },
+
+        { "id": 13, "name": "En Uzun Yüzyıl" }
+      ]
+    },
+
+    {
+      "id": 8,
+      "name": "Felsefe",
+      "topics": [
+        { "id": 1, "name": "Felsefe'nin Alanı" },
+        { "id": 2, "name": "Bilgi Felsefesi" },
+        { "id": 3, "name": "Varlık Felsefesi" },
+        { "id": 4, "name": "Ahlak Felsefesi" },
+        { "id": 5, "name": "Siyaset Felsefesi" },
+
+        { "id": 6, "name": "Sanat Felsefesi" },
+        { "id": 7, "name": "Din Felsefesi" }
+      ]
+    },
+
+    {
+      "id": 9,
+      "name": "Din",
+      "topics": [
+        { "id": 1, "name": "İnsan ve Din" },
+        { "id": 2, "name": "İbadet" },
+        { "id": 3, "name": "Hz. Muhammed'in Hayatı" },
+        { "id": 4, "name": "Vahiy ve Akıl" },
+        { "id": 5, "name": "İslam Düşüncesi ve Yorumu" },
+
+        { "id": 6, "name": "İslamda Değerler,Sanat ve Laiklik" },
+        { "id": 7, "name": "Yaşayan Dinler" }
+      ]
+    }
+  ],
+  "ayt": [
+    {
+      "id": 10,
+      "name": "Matematik",
+      "topics": [
+        { "id": 1, "name": "Kümeler – Kartezyen Çarpım" },
+        { "id": 2, "name": "Mantık" },
+        { "id": 3, "name": "Fonksiyonlar" },
+        { "id": 4, "name": "Polinomlar" },
+        { "id": 5, "name": "2.Dereceden Denklemler" },
+        { "id": 6, "name": "Permütasyon ve Kombinasyon" },
+        { "id": 7, "name": "Olasılık" },
+        { "id": 8, "name": "Veri – İstatistik" }
+      ]
+    },
+
+    {
+      "id": 11,
+      "name": "Kimya",
+      "topics": [
+        { "id": 1, "name": "Kimya ve Elektrik" },
+        { "id": 2, "name": "Karbon Kimyası" },
+        { "id": 3, "name": "Modern Atom Teorisi" },
+        { "id": 4, "name": "Gazlar" },
+        { "id": 5, "name": "Sıvı Çözeltiler" },
+        { "id": 6, "name": "Organik Bileşikler" },
+        { "id": 7, "name": "Enerji Kaynakları" }
+      ]
+    },
+
+    {
+      "id": 12,
+      "name": "Fizik",
+      "topics": [
+        { "id": 1, "name": "Çembersel Hareket" },
+        { "id": 2, "name": "Dalga Mekaniği" },
+        { "id": 3, "name": "Atom Fiziği" }
+      ]
+    },
+
+    {
+      "id": 13,
+      "name": "Biyoloji",
+      "topics": [
+        { "id": 1, "name": "Sinir Sistemi" },
+        { "id": 2, "name": "Endokrin Sistem ve Hormonlar" },
+        { "id": 3, "name": "Duyu Organları" },
+        { "id": 4, "name": "Destek ve Hareket Sistemi" },
+        { "id": 5, "name": "Dolaşım ve Bağışıklık Sistemi" },
+        { "id": 6, "name": "Solunum Sistemi" },
+        { "id": 7, "name": "Üriner Sistem" },
+        { "id": 8, "name": "Üreme Sistemi ve Embriyonik Gelişim" }
+      ]
+    },
+
+    {
+      "id": 14,
+      "name": "Edebiyat",
+      "topics": [
+        { "id": 1, "name": "Anlam Bilgisi" },
+        { "id": 2, "name": "Dil Bilgisi" },
+        { "id": 3, "name": "Güzel Sanatlar ve Edebiyat" },
+        { "id": 4, "name": "Metinlerin Sınıflandırılması" },
+        { "id": 5, "name": "Şiir Bilgisi" },
+        { "id": 6, "name": "Edebi Sanatlar" },
+        { "id": 7, "name": "Türk Edebiyatı Dönemleri" }
+      ]
+    },
+
+    {
+      "id": 15,
+      "name": "Tarih",
+      "topics": [
+        { "id": 1, "name": "Tarih ve Zaman" },
+        { "id": 2, "name": "İsanlığın İlk Dönemleri" },
+        { "id": 3, "name": "Orta Çağ'da Dünya" },
+        { "id": 4, "name": "İlk ve Orta Çağlar'da Türk Dünyası" },
+        { "id": 5, "name": "İslam Medeniyetinin Doğuşu" },
+        {
+          "id": 6,
+          "name": "Türklerin İslamiyet’i Kabulü ve İlk Türk İslam Devletleri"
+        },
+        {
+          "id": 7,
+          "name": "Yerleşme ve Devletleşme Sürecinde Selçuklu Türkiyesi"
+        }
+      ]
+    },
+
+    {
+      "id": 16,
+      "name": "Coğrafya",
+      "topics": [
+        { "id": 1, "name": "Ekosistem" },
+        { "id": 2, "name": "Nüfus Politikları" },
+        { "id": 3, "name": "Ekosistem UNsurları" },
+        { "id": 4, "name": "Göç ve Şehirleşme" },
+        { "id": 5, "name": "Türkiye Ekonomisi" }
+      ]
+    },
+
+    {
+      "id": 17,
+      "name": "Felsefe",
+      "topics": [
+        { "id": 1, "name": "Felsefenin Konusu" },
+        { "id": 2, "name": "Mantık Konuları" },
+        { "id": 3, "name": "Psikioloji Bilimini Tanıyalım" },
+        { "id": 4, "name": "Sosyolojiye Giriş" }
+      ]
+    },
+
+    {
+      "id": 18,
+      "name": "Din Kültürü",
+      "topics": [
+        { "id": 1, "name": "Allah İnsan İlişkisi" },
+        { "id": 2, "name": "Dünya ve Ahiret" },
+        { "id": 3, "name": "Kuran'a Göre Hz. Muhammed" },
+        { "id": 4, "name": "Kuran'da Bazı Kavramlar" },
+        { "id": 5, "name": "Kuran'dan Mesajlar" },
+        { "id": 6, "name": "İnançla İlgili Meseleler" },
+        { "id": 7, "name": "Yahudilik ve Hiristiyanlık" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+.gecmis-denemeler-page {
+  padding: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.analysis-button {
+  margin-bottom: 32px;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: var(--bg-tertiary);
+  transition: all 0.3s ease;
+}
+
+.analysis-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.loading-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 18px;
+  margin-top: 48px;
+}
+
+.exams-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.exam-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.exam-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.exam-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.exam-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.delete-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.delete-button:hover {
+  background-color: #8b0000;
+  transform: scale(1.05);
+}
+
+.exam-field {
+  color: var(--text-secondary);
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.exam-total {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 16px 0 12px 0;
+}
+
+.total-net-value {
+  font-size: 20px;
+  margin-left: 4px;
+}
+
+.total-net-value.success {
+  color: var(--success-color);
+}
+
+.total-net-value.error {
+  color: var(--primary-color);
+}
+
+.exam-details-section {
+  margin: 16px 0;
+  padding: 16px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--bg-tertiary);
+}
+
+.exam-detail-item {
+  color: var(--text-secondary);
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.exam-detail-item strong {
+  color: var(--text-primary);
+  margin-right: 8px;
+}
+
+.exam-goal {
+  font-weight: 600;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.exam-goal.success {
+  background-color: rgba(95, 158, 160, 0.1);
+  color: var(--success-color);
+  border-left: 4px solid var(--success-color);
+}
+
+.exam-goal.error {
+  background-color: rgba(139, 0, 0, 0.1);
+  color: var(--primary-color);
+  border-left: 4px solid var(--primary-color);
+}
+
+.exam-goal.normal {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-left: 4px solid var(--border-color);
+}
+
+.no-exams-card {
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.no-exams-text {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+  .gecmis-denemeler-page {
+    padding: 16px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .exam-card-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .delete-button {
+    align-self: flex-start;
+  }
+
+  .exam-name {
+    font-size: 16px;
+  }
+
+  .exam-details-section {
+    padding: 12px;
+  }
+
+  .exam-detail-item {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gecmis-denemeler-page {
+    padding: 12px;
+  }
+
+  .page-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .analysis-button {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .exam-card {
+    padding: 16px;
+  }
+
+  .exam-goal {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

@@ -1,4 +1,457 @@
-.questions-page {
+/* /* Mobil koddaki renkler 
+:root {
+  --dark-grey: #424242;
+  --light-grey: #E0E0E0;
+  --grey: #9E9E9E;
+  --yellow: #F8DE22;
+  --purple: rgb(165, 131, 146);
+  --dark-purple: #7B1FA2;
+  --dark-red: #A41F13;
+  --blue: #5DADE2;
+  --red: #E74C3C;
+  --white: #FFFFFF;
+  --black: #212121;
+}
+
+.soru-yonetimi-container {
+  background-color: var(--white);
+  min-height: 100vh;
+  padding-bottom: 70px; 
+}
+
+.soru-yonetimi-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.loading-text {
+  text-align: center;
+  color: var(--grey);
+  font-size: 18px;
+  margin-top: 50px;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.foto-ekle-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--purple);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.foto-ekle-button:hover {
+  background-color: var(--purple);
+  transform: scale(1.05);
+}
+
+.button-icon {
+  font-size: 20px;
+}
+
+
+.sorular-listesi {
+  margin-bottom: 20px;
+}
+
+.soru-card {
+  margin-bottom: 15px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--light-grey);
+  transition: all 0.3s ease;
+}
+
+.soru-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+// Soru İçeriği (Tıklanabilir) 
+.soru-icerik {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.soru-icerik:hover {
+  background-color: #f9f9f9;
+}
+
+.soru-foto {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: var(--light-grey);
+}
+
+.soru-detay {
+  padding: 15px;
+}
+
+.soru-text {
+  font-size: 16px;
+  color: var(--dark-grey);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.soru-tarih {
+  font-size: 12px;
+  color: var(--grey);
+}
+
+// Soru Aksiyonları 
+.soru-aksiyonlar {
+  display: flex;
+  border-top: 1px solid var(--light-grey);
+}
+
+.duzenle-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: none;
+  background-color: var(--blue);
+  color: var(--black);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.duzenle-button:hover {
+  background-color: #48a0d4;
+}
+
+.sil-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: none;
+  background-color: var(--dark-red);
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.sil-button:hover {
+  background-color: #8b1610;
+}
+
+// Boş Liste 
+.bos-liste-card {
+  padding: 50px 20px;
+}
+
+.bos-liste-container {
+  text-align: center;
+}
+
+.bos-liste-icon {
+  font-size: 50px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.bos-liste-text {
+  color: var(--grey);
+  font-size: 16px;
+}
+
+
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 60px;
+  background-color: white;
+  border-top: 1px solid var(--light-grey);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tab-item:hover {
+  background-color: #f5f5f5;
+}
+
+.tab-item.active {
+  border-top: 2px solid var(--dark-grey);
+}
+
+.tab-icon {
+  font-size: 24px;
+}
+
+.tab-icon.kolay {
+  color: var(--yellow);
+}
+
+.tab-icon.orta {
+  color: var(--purple);
+}
+
+.tab-icon.zor {
+  color: var(--dark-red);
+}
+
+.tab-text {
+  font-size: 12px;
+  color: var(--grey);
+}
+
+.tab-item.active .tab-text {
+  color: var(--dark-grey);
+  font-weight: bold;
+}
+
+.badge {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  background-color: var(--purple);
+  color: white;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+// Modal 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--dark-grey);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.modal-foto {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+  background-color: var(--light-grey);
+  margin-bottom: 15px;
+}
+
+.modal-soru-text {
+  font-size: 16px;
+  color: var(--dark-grey);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-button:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.modal-button.kolay {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+.modal-button.orta {
+  background-color: var(--light-grey);
+  color: var(--black);
+}
+
+.modal-button.zor {
+  background-color: var(--dark-red);
+}
+
+.modal-button.cozulmedi {
+  background-color: var(--grey);
+}
+
+.iptal-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
+  color: var(--dark-grey);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.iptal-button:hover {
+  color: var(--black);
+}
+
+// Büyük Soru Modal 
+.buyuk-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.buyuk-modal-content {
+  width: 90%;
+  max-width: 900px;
+  height: 80%;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.buyuk-foto {
+  width: 100%;
+  max-height: 70%;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.buyuk-soru-text {
+  font-size: 18px;
+  color: var(--dark-grey);
+  text-align: center;
+  padding: 0 20px;
+}
+
+// Responsive 
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-title {
+    text-align: center;
+  }
+
+  .foto-ekle-button {
+    justify-content: center;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+
+  .buyuk-modal-content {
+    width: 95%;
+    height: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 20px;
+  }
+
+  .tab-text {
+    font-size: 11px;
+  }
+
+  .tab-icon {
+    font-size: 20px;
+  }
+}
+
+/* .questions-page {
   padding: 32px;
   max-width: 1200px;
   margin: 0 auto;
@@ -136,5 +589,1411 @@
 
   .questions-grid {
     grid-template-columns: 1fr;
+  }
+}
+ */ 
+
+ /* Questions.css - Google Photos Tarzı Grid Layout */
+/* Questions.css - Google Photos Grid Tasarım */
+/*
+:root {
+  --dark-grey: #424242;
+  --light-grey: #E0E0E0;
+  --grey: #9E9E9E;
+  --yellow: #F8DE22;
+  --purple: rgb(165, 131, 146);
+  --dark-purple: #7B1FA2;
+  --dark-red: #A41F13;
+  --blue: #5DADE2;
+  --red: #E74C3C;
+  --white: #FFFFFF;
+  --black: #212121;
+}
+
+.soru-yonetimi-container {
+  background-color: var(--white);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.soru-yonetimi-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.loading-text {
+  text-align: center;
+  color: var(--grey);
+  font-size: 18px;
+  margin-top: 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.foto-ekle-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--purple);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(165, 131, 146, 0.3);
+}
+
+.foto-ekle-button:hover:not(:disabled) {
+  background-color: var(--dark-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(165, 131, 146, 0.4);
+}
+
+.foto-ekle-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-icon {
+  font-size: 20px;
+}
+
+/* Google Photos Tarzı Grid Layout 
+.sorular-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .sorular-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sorular-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+/* Grid Item - Her bir soru kartı 
+.grid-item {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Fotoğraf Container 
+.grid-foto-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 aspect ratio 
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.grid-foto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.grid-item:hover .grid-foto {
+  transform: scale(1.08);
+}
+
+.no-image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey);
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+}
+
+/* Hover Overlay 
+.grid-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  color: white;
+  padding: 30px 12px 12px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.grid-item:hover .grid-overlay {
+  transform: translateY(0);
+}
+
+.grid-overlay-text {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+}
+
+/* Status Badge 
+.status-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: capitalize;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.status-badge.kolay {
+  background: rgba(248, 222, 34, 0.95);
+  color: var(--black);
+}
+
+.status-badge.orta {
+  background: rgba(224, 224, 224, 0.95);
+  color: var(--black);
+}
+
+.status-badge.zor {
+  background: rgba(164, 31, 19, 0.95);
+  color: white;
+}
+
+/* Grid Info - Alt kısım
+.grid-info {
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-top: 1px solid var(--light-grey);
+}
+
+.grid-tarih {
+  font-size: 11px;
+  color: var(--grey);
+  margin: 0;
+  font-weight: 500;
+}
+
+.grid-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.grid-action-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: var(--light-grey);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.grid-action-btn:hover {
+  transform: scale(1.15);
+}
+
+.grid-action-btn.edit:hover {
+  background: var(--blue);
+}
+
+.grid-action-btn.delete:hover {
+  background: var(--dark-red);
+  color: white;
+}
+
+/* Boş Liste 
+.bos-liste-wrapper {
+  grid-column: 1 / -1;
+}
+
+.bos-liste-card {
+  padding: 50px 20px;
+  text-align: center;
+  border: 2px dashed var(--light-grey);
+}
+
+.bos-liste-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.bos_liste_icon {
+  color: var(--grey);
+}
+
+.bos-liste-text {
+  color: var(--grey);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Tab Bar - Alt Navigasyon 
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 65px;
+  background-color: white;
+  border-top: 1px solid var(--light-grey);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+  z-index: 100;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 8px;
+}
+
+.tab-item:hover {
+  background-color: rgba(165, 131, 146, 0.05);
+}
+
+.tab-item.active {
+  background-color: rgba(165, 131, 146, 0.1);
+}
+
+.tab-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--purple);
+}
+
+.tab-icon {
+  font-size: 24px;
+  color: var(--grey);
+  transition: color 0.3s ease;
+}
+
+.tab-item.active .tab-icon {
+  color: var(--purple);
+}
+
+.tab-icon.kolay {
+  color: var(--yellow);
+}
+
+.tab-icon.orta {
+  color: var(--purple);
+}
+
+.tab-icon.zor {
+  color: var(--dark-red);
+}
+
+.tab-text {
+  font-size: 11px;
+  color: var(--grey);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.tab-item.active .tab-text {
+  color: var(--purple);
+  font-weight: bold;
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: calc(50% - 30px);
+  background-color: var(--purple);
+  color: white;
+  border-radius: 10px;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 0 6px;
+}
+
+/* Modal - Kategorize Etme 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 20px;
+  padding: 25px;
+  width: 90%;
+  max-width: 450px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--dark-grey);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-foto {
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 12px;
+  background-color: var(--light-grey);
+  margin-bottom: 15px;
+}
+
+.modal-soru-text {
+  font-size: 15px;
+  color: var(--dark-grey);
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal-button:active {
+  transform: translateY(0);
+}
+
+.modal-button.kolay {
+  background: linear-gradient(135deg, #F8DE22 0%, #e6cc1f 100%);
+  color: var(--black);
+}
+
+.modal-button.orta {
+  background: linear-gradient(135deg, var(--purple) 0%, #8e6f82 100%);
+  color: white;
+}
+
+.modal-button.zor {
+  background: linear-gradient(135deg, var(--dark-red) 0%, #8a1910 100%);
+}
+
+.modal-button.cozulmedi {
+  background: linear-gradient(135deg, var(--grey) 0%, #7a7a7a 100%);
+}
+
+.iptal-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: none;
+  color: var(--dark-grey);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.iptal-button:hover {
+  background-color: var(--light-grey);
+  color: var(--black);
+}
+
+/* Büyük Soru Modal 
+.buyuk-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  animation: fadeIn 0.3s ease;
+}
+
+.buyuk-modal-content {
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  background-color: white;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.buyuk-foto {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.buyuk-soru-text {
+  font-size: 18px;
+  color: var(--dark-grey);
+  text-align: center;
+  padding: 0 20px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Responsive 
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-title {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .foto-ekle-button {
+    justify-content: center;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .buyuk-modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .tab-text {
+    font-size: 10px;
+  }
+
+  .tab-icon {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 20px;
+  }
+
+  .grid-overlay-text {
+    font-size: 12px;
+  }
+
+  .status-badge {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+} */
+
+/* Questions.css - Google Photos Grid Tasarım */
+/* Questions.css - Google Photos Grid Tasarım */
+
+:root {
+  --dark-grey: #424242;
+  --light-grey: #E0E0E0;
+  --grey: #9E9E9E;
+  --yellow: #F8DE22;
+  --purple: rgb(165, 131, 146);
+  --dark-purple: #7B1FA2;
+  --dark-red: #A41F13;
+  --blue: #5DADE2;
+  --red: #E74C3C;
+  --white: #FFFFFF;
+  --black: #212121;
+}
+
+.soru-yonetimi-container {
+  background-color: var(--white);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.soru-yonetimi-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.loading-text {
+  text-align: center;
+  color: var(--grey);
+  font-size: 18px;
+  margin-top: 50px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.foto-ekle-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--purple);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(165, 131, 146, 0.3);
+}
+
+.foto-ekle-button:hover:not(:disabled) {
+  background-color: var(--dark-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(165, 131, 146, 0.4);
+}
+
+.foto-ekle-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-icon {
+  font-size: 20px;
+}
+
+/* Google Photos Tarzı Grid Layout */
+.sorular-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .sorular-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sorular-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+/* Grid Item - Her bir soru kartı */
+.grid-item {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Fotoğraf Container */
+.grid-foto-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 aspect ratio */
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.grid-foto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.grid-item:hover .grid-foto {
+  transform: scale(1.08);
+}
+
+.no-image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey);
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+}
+
+/* Hover Overlay */
+.grid-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  color: white;
+  padding: 30px 12px 12px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.grid-item:hover .grid-overlay {
+  transform: translateY(0);
+}
+
+.grid-overlay-text {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /*-webkit-line-clamp: 3;*/
+  -webkit-box-orient: vertical;
+}
+
+/* Status Badge */
+.status-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: capitalize;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.status-badge.kolay {
+  background: rgba(248, 222, 34, 0.95);
+  color: var(--black);
+}
+
+.status-badge.orta {
+  background: rgba(224, 224, 224, 0.95);
+  color: var(--black);
+}
+
+.status-badge.zor {
+  background: rgba(164, 31, 19, 0.95);
+  color: white;
+}
+
+/* Grid Info - Alt kısım */
+.grid-info {
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-top: 1px solid var(--light-grey);
+}
+
+.grid-tarih {
+  font-size: 11px;
+  color: var(--grey);
+  margin: 0;
+  font-weight: 500;
+}
+
+.grid-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.grid-action-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: var(--light-grey);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.grid-action-btn:hover {
+  transform: scale(1.15);
+}
+
+.grid-action-btn.edit:hover {
+  background: var(--blue);
+}
+
+.grid-action-btn.delete:hover {
+  background: var(--dark-red);
+  color: white;
+}
+
+/* Boş Liste */
+.bos-liste-wrapper {
+  grid-column: 1 / -1;
+}
+
+.bos-liste-card {
+  padding: 50px 20px;
+  text-align: center;
+  border: 2px dashed var(--light-grey);
+}
+
+.bos-liste-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.bos_liste_icon {
+  color: var(--grey);
+}
+
+.bos-liste-text {
+  color: var(--grey);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Tab Bar - Alt Navigasyon */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 65px;
+  background-color: white;
+  border-top: 1px solid var(--light-grey);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+  z-index: 100;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 8px;
+}
+
+.tab-item:hover {
+  background-color: rgba(165, 131, 146, 0.05);
+}
+
+.tab-item.active {
+  background-color: rgba(165, 131, 146, 0.1);
+}
+
+.tab-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--purple);
+}
+
+.tab-icon {
+  font-size: 24px;
+  color: var(--grey);
+  transition: color 0.3s ease;
+}
+
+.tab-item.active .tab-icon {
+  color: var(--purple);
+}
+
+.tab-icon.kolay {
+  color: var(--yellow);
+}
+
+.tab-icon.orta {
+  color: var(--purple);
+}
+
+.tab-icon.zor {
+  color: var(--dark-red);
+}
+
+.tab-text {
+  font-size: 11px;
+  color: var(--grey);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.tab-item.active .tab-text {
+  color: var(--purple);
+  font-weight: bold;
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: calc(50% - 30px);
+  background-color: var(--purple);
+  color: white;
+  border-radius: 10px;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 0 6px;
+}
+
+/* Modal - Kategorize Etme & Seçim */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--light-grey);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: var(--grey);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.modal-close.buyuk {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  width: 44px;
+  height: 44px;
+}
+
+/* Fotoğraf Seçim Modal (Kamera vs Dosya) */
+.secim-modal-content {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.secim-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.secim-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 30px 20px;
+  border: 2px solid var(--light-grey);
+  border-radius: 16px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--dark-grey);
+}
+
+.secim-button:hover:not(:disabled) {
+  border-color: var(--purple);
+  background: rgba(165, 131, 146, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(165, 131, 146, 0.2);
+}
+
+.secim-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secim-button svg {
+  color: var(--purple);
+}
+
+.secim-button span {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.secim-desc {
+  font-size: 12px;
+  color: var(--grey);
+  margin: 0;
+  text-align: center;
+}
+
+.secim-button.camera svg {
+  color: var(--blue);
+}
+
+.secim-button.file svg {
+  color: var(--purple);
+}
+
+@media (max-width: 480px) {
+  .secim-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  .secim-button {
+    padding: 25px 15px;
+  }
+}
+
+/* Kategorize Modal */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 20px;
+  padding: 25px;
+  width: 90%;
+  max-width: 450px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--dark-grey);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-foto {
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 12px;
+  background-color: var(--light-grey);
+  margin-bottom: 15px;
+}
+
+.modal-soru-text {
+  font-size: 15px;
+  color: var(--dark-grey);
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal-button:active {
+  transform: translateY(0);
+}
+
+.modal-button.kolay {
+  background: linear-gradient(135deg, #F8DE22 0%, #e6cc1f 100%);
+  color: var(--black);
+}
+
+.modal-button.orta {
+  background: linear-gradient(135deg, var(--purple) 0%, #8e6f82 100%);
+  color: white;
+}
+
+.modal-button.zor {
+  background: linear-gradient(135deg, var(--dark-red) 0%, #8a1910 100%);
+}
+
+.modal-button.cozulmedi {
+  background: linear-gradient(135deg, var(--grey) 0%, #7a7a7a 100%);
+}
+
+.iptal-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: none;
+  color: var(--dark-grey);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.iptal-button:hover {
+  background-color: var(--light-grey);
+  color: var(--black);
+}
+
+/* Büyük Soru Modal */
+.buyuk-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  animation: fadeIn 0.3s ease;
+}
+
+.buyuk-modal-content {
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  background-color: white;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.buyuk-foto {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.buyuk-soru-text {
+  font-size: 18px;
+  color: var(--dark-grey);
+  text-align: center;
+  padding: 0 20px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-title {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .foto-ekle-button {
+    justify-content: center;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .buyuk-modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .tab-text {
+    font-size: 10px;
+  }
+
+  .tab-icon {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 20px;
+  }
+
+  .grid-overlay-text {
+    font-size: 12px;
+  }
+
+  .status-badge {
+    padding: 3px 8px;
+    font-size: 10px;
   }
 }

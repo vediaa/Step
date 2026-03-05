@@ -7,8 +7,8 @@ import "./Profile.css";
 
 const Profile = () => {
   const [userData, setUserData] = useState({
-    name: "Vedia Sağdıç",
-    email: "ved6@gmail.com",
+    name: "",
+    email: "",
     currentPassword: "",
     newPassword: "",
     confirmPassword: "",

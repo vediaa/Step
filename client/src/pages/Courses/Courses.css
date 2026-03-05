@@ -1,4 +1,4 @@
-.courses-page {
+/* .courses-page {
   padding: 32px;
   max-width: 1000px;
   margin: 0 auto;
@@ -145,5 +145,265 @@
 
   .course-name {
     font-size: 18px;
+  }
+}
+ */
+
+ /* Mobil koddaki renkler */
+:root {
+  --dark-red: #A41F13;
+  --dark-grey: #424242;
+  --grey: #9E9E9E;
+  --yellow: #F8DE22;
+  --background: #FBFBFB;
+  --white: #FFFFFF;
+  --black: #212121;
+  --text-secondary: #757575;
+  --border-light: #eeeeee;
+}
+
+.dersler-container {
+  background-color: var(--background);
+  min-height: 100vh;
+  padding: 15px;
+}
+
+.dersler-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.loading-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 18px;
+  margin-top: 50px;
+}
+
+/* Section Header Butonları (TYT/AYT) */
+.section-header-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.section-header-button.tyt {
+  background-color: var(--dark-red);
+}
+
+.section-header-button.ayt {
+  background-color: var(--dark-grey);
+}
+
+.section-header-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.section-title-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.arrow-icon {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Section Content */
+.section-content {
+  margin-bottom: 20px;
+}
+
+/* Subject Card */
+.subject-card {
+  margin-bottom: 15px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.subject-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.subject-header:hover {
+  opacity: 0.9;
+}
+
+.subject-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Progress Container */
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-bar-background {
+  width: 50px;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.progress-bar-fill.tyt {
+  background-color: var(--dark-red);
+}
+
+.progress-bar-fill.ayt {
+  background-color: var(--yellow);
+}
+
+.progress-text {
+  color: white;
+  font-weight: bold;
+  min-width: 35px;
+  text-align: right;
+  font-size: 14px;
+}
+
+/* Topics Container */
+.topics-container {
+  padding: 10px 15px;
+  background-color: var(--white);
+}
+
+.topic-row {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.topic-row:last-child {
+  border-bottom: none;
+}
+
+/* Checkbox Label */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Custom Checkbox */
+.topic-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: var(--dark-red);
+  flex-shrink: 0;
+}
+
+.topic-checkbox.ayt {
+  accent-color: var(--yellow);
+}
+
+/* Topic Text */
+.topic-text {
+  font-size: 16px;
+  color: #333;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.topic-text.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dersler-container {
+    padding: 10px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .section-header-button {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .subject-title {
+    font-size: 16px;
+  }
+
+  .progress-container {
+    gap: 8px;
+  }
+
+  .progress-bar-background {
+    width: 40px;
+    height: 8px;
+  }
+
+  .progress-text {
+    font-size: 13px;
+  }
+
+  .topic-text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 20px;
+  }
+
+  .section-header-button {
+    font-size: 16px;
+  }
+
+  .subject-title {
+    font-size: 15px;
+  }
+
+  .topic-text {
+    font-size: 14px;
+  }
+
+  .progress-bar-background {
+    width: 35px;
   }
 }

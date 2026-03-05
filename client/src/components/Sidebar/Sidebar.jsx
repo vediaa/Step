@@ -6,6 +6,7 @@ import {
   FiTarget,
   FiHelpCircle,
   FiUser,
+  FiCalendar,
 } from "react-icons/fi";
 import Logo from "../Logo/Logo";
 import "./Sidebar.css";
@@ -17,8 +18,10 @@ const Sidebar = () => {
     { path: "/dashboard", icon: <FiHome />, label: "Anasayfa" },
     { path: "/courses", icon: <FiBook />, label: "Derslerim" },
     { path: "/exams", icon: <FiBarChart2 />, label: "Netler" },
-    { path: "/goals", icon: <FiTarget />, label: "Hedefler" },
+    /* { path: "/goals", icon: <FiTarget />, label: "Hedefler" }, */
     { path: "/questions", icon: <FiHelpCircle />, label: "Sorular" },
+    { path: "/ders-programi", icon: <FiCalendar />, label: "Ders Programı" },
+
     { path: "/profile", icon: <FiUser />, label: "Profil" },
   ];
 

@@ -1,28 +1,39 @@
 import jwt from "jsonwebtoken";
 
 const userAuth = async (req, res, next) => {
-  const { token } = req.cookies; //sitedeki cokkieden token bilgisini aldı
+  let token;
+
+  // 1. Önce Header kontrolü (Frontend'den Bearer Token olarak gelirse)
+  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+    token = req.headers.authorization.split(' ')[1];
+  } 
+  // 2. Eğer Header yoksa Cookie kontrolü
+  else if (req.cookies && req.cookies.token) {
+    token = req.cookies.token;
+  }
+
+  // Token hiç bulunamadıysa
   if (!token) {
     return res.json({
       success: false,
-      message: "Yetkilendirme başarısız tekrar giriş yapın",
+      message: "Yetkilendirme başarısız, token bulunamadı.",
     });
   }
+
   try {
     const tokenDecode = jwt.verify(token, process.env.JWT_SECRET);
-    if (tokenDecode.id) {
-      if (!req.body) req.body = {}; //değiti body
-      req.body.userId = tokenDecode.id;
+
+    if (tokenDecode && tokenDecode.id) {
+      req.user = { id: tokenDecode.id }; // Controller'ın beklediği yer
+      next(); 
     } else {
       return res.json({
         success: false,
-        message: "Yetkilendirme başarısız tekrar giriş yapın",
+        message: "Geçersiz token yapısı.",
       });
     }
-
-    next(); //tüm şartlar sağlandı token kullanıcıya ait
   } catch (error) {
-    return res.json({ success: false, message: error.message });
+    return res.json({ success: false, message: "Token doğrulanamadı: " + error.message });
   }
 };
 

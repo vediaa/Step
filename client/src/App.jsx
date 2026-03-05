@@ -14,6 +14,8 @@ import Exams from "./pages/Exams/Exams";
 import Goals from "./pages/Goals/Goals";
 import Questions from "./pages/Questions/Questions";
 import Profile from "./pages/Profile/Profile";
+import GecmisDenemeler from "./pages/GecmisDenemeler/GecmisDenemeler"; //bak buna
+import DersProgrami from "./pages/DersProgrami/DersProgrami";
 import "./App.css";
 import "./color/Colors.css";
 
@@ -121,15 +123,46 @@ function App() {
               )
             }
           />
+
+          <Route
+            path="/gecmis-denemeler"
+            element={
+              isAuthenticated ? (
+                <div className="app-layout">
+                  <Sidebar />
+                  <div className="main-content">
+                    <GecmisDenemeler />
+                  </div>
+                </div>
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
+
+          <Route
+            path="/ders-programi"
+            element={
+              isAuthenticated ? (
+                <div className="app-layout">
+                  <Sidebar />
+                  <div className="main-content">
+                    <DersProgrami />
+                  </div>
+                </div>
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
         </Routes>
       </div>
     </Router>
   );
 }
-
 export default App;
 
-/*import React from "react";
+/* import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Welcome from "./pages/Welcome/Welcome.jsx";
 import Home from "./pages/Home";
@@ -152,4 +185,4 @@ const App = () => {
   );
 };
 
-export default App;*/
+export default App; */

@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
-    ad: { type: String, required: true },
-    ePosta: { type: String, required: true, unique: true },
-    sifre: { type: String, required: true },
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
     verifyOtp: { type: String, default: "" }, //one time pasword doğrulama
     verifyOtpExpireAt: { type: Number, default: 0 }, //geçerlilik süresi
     isAccountVerified: { type: Boolean, default: false }, //hesap doğrulandı mı

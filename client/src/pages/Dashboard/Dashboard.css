@@ -86,30 +86,33 @@
 }
 
 .feature-icon {
-  width: 64px;
-  height: 64px;
+  width: 100px;
+  height: px;
   border-radius: 12px;
-  background-color: white;
+  background-color: white; 
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 32px;
-  color: var(--text-primary);
+  color: var(--text-primary);  
+    background: none; 
+
+} 
+
+ .feature-icon svg {
+  color: #fff; 
 }
 
-.feature-icon.dark-icon {
-  color: #333;
-}
 
 .feature-title {
   font-size: 20px;
   font-weight: 600;
-  color: white;
+  color: white; 
   margin: 0;
 }
 
 .feature-title.dark-text {
-  color: #333;
+  color: #fff;
 }
 
 @media (max-width: 640px) {

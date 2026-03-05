@@ -1,4 +1,653 @@
-.exams-page {
+/* .exams-page {
+  padding: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.exams-header {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.subsection-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 24px 0 12px 0;
+}
+
+.exam-type-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.type-button {
+  padding: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.type-button:hover {
+  border-color: var(--bg-tertiary);
+  transform: translateY(-2px);
+}
+
+.type-button.active {
+  background-color: var(--bg-tertiary);
+  color: white;
+  border-color: var(--bg-tertiary);
+}
+
+.score-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.score-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.subject-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.score-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.score-fields .input-wrapper {
+  margin-bottom: 0;
+}
+
+.net-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--success-color);
+  min-width: 70px;
+  text-align: center;
+}
+
+.total-net {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  padding: 20px;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+.total-value {
+  color: var(--primary-color);
+  font-size: 24px;
+  margin-left: 8px;
+}
+
+.previous-exams {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.exam-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.exam-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.exam-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 16px;
+}
+
+.exam-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.delete-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.delete-button:hover {
+  background-color: #8b0000;
+  transform: scale(1.05);
+}
+
+.exam-field {
+  color: var(--text-secondary);
+  margin: 8px 0;
+}
+
+.exam-total {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 12px 0;
+}
+
+.success-text {
+  color: var(--success-color);
+}
+
+.error-text {
+  color: var(--primary-color);
+}
+
+.exam-details {
+  background-color: var(--bg-secondary);
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  border-left: 4px solid var(--bg-tertiary);
+}
+
+.exam-detail-line {
+  color: var(--text-secondary);
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.exam-goal {
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.exam-goal.success {
+  background-color: rgba(95, 158, 160, 0.1);
+  color: var(--success-color);
+  border-left: 4px solid var(--success-color);
+}
+
+.exam-goal.error {
+  background-color: rgba(139, 0, 0, 0.1);
+  color: var(--primary-color);
+  border-left: 4px solid var(--primary-color);
+}
+
+.no-exams-card {
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.no-exams-text {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .exams-page {
+    padding: 16px;
+  }
+
+  .score-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .net-value {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+
+  .exam-card-header {
+    flex-direction: column;
+  }
+
+  .delete-button {
+    align-self: flex-start;
+  }
+}
+ */
+
+ /* Mobil koddaki renkler - Colors.js'den */
+/* :root {
+  --primary-color: #4CAF50;
+  --secondary-color: #FFC107;
+  --background-color: #F0F4F8;
+  --card-background: #FFFFFF;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --border-color: #BDBDBD;
+  --success-color: #7EACB5;
+  --error-color: #F44336;
+  --warning-color: #A41F13;
+  --yellow: #F8DE22;
+  --dark-grey: #424242;
+  --lacivert: #2C3E50;
+  --dark-red: #8B0000;
+  --blue-text: #5588A3;
+} */
+
+
+:root{
+  --lacivert: #2C3E50;
+} 
+
+.netler-container {
+  background-color: var(--background-color);
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.netler-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+/* Section Stilleri */
+.netler-section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.sub-heading {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin: 15px 0 10px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Form Elemanları */
+.form-label {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+  font-weight: 600;
+  display: block;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.form-input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 16px;
+  color: var(--text-primary);
+  background-color: white;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Alan Seçimi Butonları */
+.branch-selection {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.branch-button {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.branch-button:hover {
+  background-color: var(--background-color);
+}
+
+.branch-button.active {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: white;
+}
+
+/* Deneme Türü Seçimi */
+.exam-type-selection {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.exam-type-button {
+  flex: 1;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.exam-type-button:hover {
+  background-color: var(--background-color);
+}
+
+.exam-type-button.active {
+  background-color: var(--lacivert);
+  border-color: var(--lacivert);
+  color: white;
+}
+
+/* Net Input Row - Ders Girişleri */
+.net-input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.net-label {
+  flex: 2;
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.net-inputs {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.net-input {
+  width: 60px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 0 8px;
+  font-size: 16px;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.net-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.net-result {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--blue-text);
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Toplam Net Gösterimi */
+.total-net-display {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.total-net-value {
+  color: var(--dark-red);
+  font-size: 20px;
+}
+
+/* Mesaj Stilleri */
+.info-message {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 10px 0;
+  text-align: center;
+  font-style: italic;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.no-exam-text {
+  color: var(--text-secondary);
+  font-size: 16px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Deneme Analizi Kartı */
+.analysis-card {
+  margin-top: 0;
+}
+
+.exam-analysis-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.exam-total-net {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 8px 0;
+}
+
+.net-value {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.net-value.success {
+  color: var(--success-color);
+}
+
+.net-value.warning {
+  color: var(--warning-color);
+}
+
+.net-value.normal {
+  color: var(--text-primary);
+}
+
+.detail-section {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.detail-text {
+  font-size: 14px;
+  color: #555;
+  margin: 2px 0;
+  line-height: 1.6;
+}
+
+.comparison-text {
+  font-size: 16px;
+  margin-top: 12px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+
+.comparison-text.success {
+  color: var(--success-color);
+  background-color: rgba(126, 172, 181, 0.1);
+}
+
+.comparison-text.warning {
+  color: var(--warning-color);
+  background-color: rgba(164, 31, 19, 0.1);
+}
+
+.comparison-text.normal {
+  color: var(--text-secondary);
+  background-color: var(--background-color);
+}
+
+/* Geçmiş Denemeler Butonu */
+.history-button {
+  width: 100%;
+  background-color: var(--yellow);
+  color: var(--text-primary);
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.history-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .netler-container {
+    padding: 12px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .net-input-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .net-label {
+    width: 100%;
+  }
+
+  .net-inputs {
+    width: 100%;
+  }
+
+  .branch-selection,
+  .exam-type-selection {
+    flex-direction: column;
+  }
+
+  .branch-button,
+  .exam-type-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 18px;
+  }
+
+  .form-input {
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .net-input {
+    width: 50px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .total-net-display {
+    font-size: 16px;
+  }
+
+  .total-net-value {
+    font-size: 18px;
+  }
+}
+
+/* .exams-page {
+
   padding: 32px;
   max-width: 900px;
   margin: 0 auto;
@@ -193,3 +842,4 @@
     text-align: left;
   }
 }
+  */

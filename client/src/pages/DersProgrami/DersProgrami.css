@@ -1,0 +1,339 @@
+/* Mobil koddaki renkler */
+:root {
+  --dark-grey: #424242;
+  --light-grey: #9D9D9D;
+  --background: #FBFBFB;
+  --calendar-bg: rgb(165, 131, 146);
+  --selected-day: #DEE5D4;
+  --yellow: #F8DE22;
+  --white: #FFFFFF;
+  --black: #212121;
+}
+
+.ders-programi-container {
+  background-color: var(--background);
+  min-height: 100vh;
+  padding: 15px;
+}
+
+.ders-programi-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Takvim Toggle Butonu */
+.calendar-toggle-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--dark-grey);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.calendar-toggle-button:hover {
+  background-color: #505050;
+  transform: translateY(-2px);
+}
+
+.calendar-icon {
+  font-size: 24px;
+  margin-right: 10px;
+  color:var(--white);
+}
+
+.calendar-date-text {
+  flex: 1;
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  text-align: left;
+}
+
+.calendar-arrow {
+  font-size: 18px;
+  color: white;
+}
+
+/* Takvim Kartı */
+.calendar-card {
+  margin-bottom: 15px;
+  background-color: var(--calendar-bg);
+  overflow: hidden;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.calendar-nav-button {
+  background: none;
+  border: none;
+  color: #FFF7FC;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.calendar-nav-button:hover {
+  transform: scale(1.2);
+}
+
+.calendar-month-year {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFF7FC;
+}
+
+/* Takvim Grid */
+.calendar-grid {
+  padding: 15px;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFF7FC;
+  padding: 8px 0;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.calendar-day:hover:not(.calendar-day-empty) {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.calendar-day-empty {
+  background: transparent;
+  cursor: default;
+}
+
+.calendar-day-selected {
+  background-color: var(--selected-day);
+  color: var(--black);
+  font-weight: bold;
+  box-shadow: 0 0 0 2px white;
+}
+
+.calendar-day-marked::after {
+  content: "•";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FFF9D7;
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Görevler Listesi */
+.tasks-list {
+  margin-bottom: 15px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.no-tasks-text {
+  text-align: center;
+  color: var(--dark-grey);
+  font-size: 16px;
+  padding: 20px;
+}
+
+/* Görev Kartı */
+.task-card {
+  margin-bottom: 10px;
+  background-color: var(--light-grey);
+  padding: 12px;
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-checkbox-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.task-checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  border: 2px solid var(--black);
+  background-color: var(--white);
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.task-checkbox-completed {
+  background-color: var(--black);
+  border-color: var(--black);
+}
+
+.checkmark {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.task-text {
+  font-size: 16px;
+  color: var(--white);
+  flex: 1;
+}
+
+.task-text-completed {
+  text-decoration: line-through;
+  color: var(--dark-grey);
+}
+
+/* Görev Aksiyonları */
+.task-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.task-edit-button,
+.task-delete-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  transition: all 0.3s ease;
+}
+
+.task-edit-button:hover {
+  transform: scale(1.2);
+}
+
+.task-delete-button:hover {
+  transform: scale(1.2);
+}
+
+/* Görev Ekleme Formu */
+.add-task-form {
+  display: flex;
+  gap: 10px;
+  position: sticky;
+  bottom: 15px;
+  background-color: var(--background);
+  padding: 10px 0;
+}
+
+.task-input {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 16px;
+  background-color: white;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: var(--dark-grey);
+}
+
+.add-task-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: var(--dark-grey);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.add-task-button:hover {
+  background-color: #505050;
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ders-programi-container {
+    padding: 10px;
+  }
+
+  .calendar-day {
+    font-size: 14px;
+  }
+
+  .task-text {
+    font-size: 14px;
+  }
+
+  .task-input {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-date-text {
+    font-size: 16px;
+  }
+
+  .calendar-month-year {
+    font-size: 16px;
+  }
+
+  .calendar-day {
+    font-size: 12px;
+  }
+}
