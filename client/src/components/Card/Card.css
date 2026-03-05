@@ -17,11 +17,12 @@
 }
 
 .card.primary {
-  background: linear-gradient(
+  /*background: linear-gradient(
     135deg,
     var(--primary-color),
     var(--secondary-color)
-  );
+  );*/
+  background-color: var(--darkred);
   color: white;
   border: none;
 }
@@ -33,7 +34,8 @@
 }
 
 .card.secondary {
-  background-color: var(--dark-blue);
+  background-color: var(--grey);
+  border: none;
 }
 
 .card.dark {
