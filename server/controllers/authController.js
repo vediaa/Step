@@ -96,7 +96,7 @@ export const cikisYap = async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
     });
-    res.json({ success: false, message: "oturum kapandi" });
+    res.json({ success: true, message: "oturum kapandi" });
   } catch (error) {
     res.json({ success: false, message: error.message });
   }
