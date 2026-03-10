@@ -20,6 +20,9 @@ const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  // İŞTE SİHİRLİ STATE: Kullanıcı kayıt oldu mu? Başlangıçta hayır (false).
+  const [kayitBasarili, setKayitBasarili] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -28,7 +31,7 @@ const Register = () => {
   };
 
   const vediaSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); //form sayfayı yenilemesin diye
     setIsLoading(true);
     setError("");
     setSuccess("");
@@ -38,18 +41,19 @@ const Register = () => {
     try {
       const response = await fetch("http://localhost:5001/api/auth/kayit", {
         method: "POST",
+        credentials: "include", //cokie için gerekli
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json", //backende json gönderiyorz demek
         },
         credentials: "include",
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData), //veriyi json formataına çevirdik
       });
 
       const data = await response.json();
 
       if (!response.ok) {
         throw new Error(
-          data.message || `HTTP error! status: ${response.status}`
+          data.message || `HTTP error! status: ${response.status}`,
         );
       }
 
@@ -63,7 +67,7 @@ const Register = () => {
 
       // 2 saniye sonra login sayfasına yönlendir
       setTimeout(() => {
-        navigate("/login");
+        navigate("/verify-email"); // logindi eskiden
       }, 2000);
     } catch (error) {
       console.error("Kayıt hatası:", error);

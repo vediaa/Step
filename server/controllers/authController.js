@@ -11,9 +11,11 @@ export const kayitOl = async (req, res) => {
 
   try {
     const userExists = await User.findOne({ email });
+    
     if (userExists) {
-      return res.json({ success: false, message: "kullanıcı zaten maevcut" });
+      return res.json({ success: false, message: "kullanıcı zaten mevcut" });
     }
+    
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ name, email, password: hashedPassword });
     await user.save();
@@ -21,12 +23,15 @@ export const kayitOl = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "30d",
     });
+    
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
+
+    // djdkdk
 
     const mailOptions = {
       from: process.env.SENDER_MAIL,
@@ -35,9 +40,10 @@ export const kayitOl = async (req, res) => {
       text: `
         Merhaba ${name},
         Kaydınız başarıyla tamamlandı!
-       Giriş yapmak için e-posta nameresinizi kullanabilirsiniz.
+       Giriş yapmak için e-posta doğrulayın. Doğrulama kodunuz: 
       `,
     };
+
     await transporter.sendMail(mailOptions);
     return res.json({ success: true, message: "e posta gönderildi" });
   } catch (error) {
@@ -104,18 +110,20 @@ export const cikisYap = async (req, res) => {
 
 export const sendVerifyOtp = async (req, res) => {
   try {
-    const { userId } = req.body; //userıd veritabındaki kullanıc ıdsi jwt sayesinde biz bunu biliyoruz
-
+    const { id: userId } = req.user; //userıd veritabındaki kullanıc ıdsi jwt sayesinde biz bunu biliyoruz
+    
     const user = await User.findById(userId); //dosynamea modeli oluşturduğumzu isim User sonra bu ıdyi veritabbında aratıp kullanıcıyı bulacağız
     //artık veritabındaki değişkenleri kullanabiliriz
     if (user.isAccountVerifed) {
-      console.log("burda bir hata oluştu"); //şlimdi burda eğerki bu if in içine girerse sorun demekki hesap doğrulamnameı
-      return res.json({ success: false, message: "hesap doğrulanmıştı" });
+      console.log("hesap zaten doğrulanmış"); //şlimdi burda eğerki bu if in içine girerse sorun demekki hesap doğrulamnameı
+      return res.json({ success: true, message: "hesap doğrulanmıştı" });
     }
+
     const otp = String(Math.floor(100000 + Math.random() * 900000)); //6 haneli olacak donr aondalığı atarıaz sting,n amcaı her zmn 6 haneli olsun diye başındaki 0 ı korumak için
     user.verifyOtp = otp;
     user.verifyOtpExpireAt = Date.now() + 24 * 60 * 60 * 1000;
     await user.save();
+
     const mailOption = {
       from: process.env.SENDER_MAIL,
       to: user.email,
@@ -132,7 +140,8 @@ export const sendVerifyOtp = async (req, res) => {
 };
 
 export const verifyEmail = async (req, res) => {
-  const { userId, otp } = req.body;
+  const {id: userId} = req.user;
+  const { otp } = req.body;
 
   if (!userId || !otp) {
     return res.json({ success: false, message: "Bilgiler eksik" });
