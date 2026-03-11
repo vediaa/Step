@@ -5,6 +5,7 @@ const Input = ({
   placeholder,
   value,
   onChange,
+  readOnly,
   icon,
   label,
   error,
@@ -21,6 +22,7 @@ const Input = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          readOnly={readOnly}
           className={`custom-input ${icon ? "with-icon" : ""} ${
             error ? "error" : ""
           }`}

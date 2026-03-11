@@ -31,6 +31,7 @@ app.use(
     credentials: true, //cokkie için
   })
 );
+app.use(cookieParser()); // 2. BUNU KESİNLİKLE EKLE! (Route'lardan önce olmalı)
 
 // ⚠️ ÖNEMLİ: Body parser limitleri ARTIRMA
 // Base64 fotoğraflar için 10MB limit (gerekirse 20MB'a çıkarabilirsiniz)

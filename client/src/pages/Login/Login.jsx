@@ -25,6 +25,7 @@ const Login = () => {
     try {
       const response = await fetch("http://localhost:5001/api/auth/giris", {
         method: "POST",
+        credentials: "include", // "Backend'den Set-Cookie gelirse lütfen onu tarayıcıya kaydet" demektir!
         headers: {
           "Content-Type": "application/json",
         },

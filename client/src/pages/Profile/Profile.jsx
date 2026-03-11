@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiUser, FiMail, FiLock, FiKey } from "react-icons/fi";
 import Card from "../../components/Card/Card";
 import Input from "../../components/Input/Input";
@@ -8,9 +8,37 @@ import "./Profile.css";
 const Profile = () => {
   // Kullanıcı bilgileri (Normalde bunları API'den veya Context'ten çekersin)
   const [userData, setUserData] = useState({
-    name: "Vedia",
-    email: "vedia@ornek.com",
+    name: "",
+    email: "",
   });
+
+  // Sayfa açıldığı an API'den veriyi çeken yapı:
+  useEffect(() => {
+    const profiliGetir = async () => {
+      try {
+        // DİKKAT: "kullanici-bilgisi" yazan yeri kendi router dosyandaki adrese göre değiştir!
+        const res = await fetch("http://localhost:5001/api/user/data", {
+          method: "GET", // Router'da router.get ise GET, router.post ise POST yap
+          credentials: "include", // Cookie'deki token'ı göndermek için ŞART
+        });
+
+        const data = await res.json();
+        console.log("Backend'den gelen veri:", data);
+
+        if (data.success) {
+          // Backend'den gelen verileri alıp kutularımıza (state) yerleştiriyoruz
+          setUserData({
+            name: data.userData.ad, // Backend'deki "ad", React'teki "name" state'ine giriyor
+            email: data.userData.email, // Backend'den eklediğimiz email buraya giriyor
+          });
+        }
+      } catch (error) {
+        console.error("Profil bilgileri alınamadı:", error);
+      }
+    };
+
+    profiliGetir();
+  }, []); // Boş dizi [] sayesinde sadece sayfa ilk açıldığında çalışır
 
   // Şifre sıfırlama (OTP) süreci için state'ler
   const [passwords, setPasswords] = useState({
@@ -120,7 +148,7 @@ const Profile = () => {
           <Input
             type="text"
             name="name"
-            value={userData.name}
+            value={userData.name || ""}
             onChange={(e) => setUserData({ ...userData, name: e.target.value })}
             icon={<FiUser />}
             label="Ad Soyad"
@@ -129,8 +157,8 @@ const Profile = () => {
           <Input
             type="email"
             name="email"
-            value={userData.email}
-            readOnly // E-posta değiştirme genelde ayrı bir işlem gerektirir
+            value={userData.email || ""}
+            readOnly={true} // E-posta değiştirme genelde ayrı bir işlem gerektirir
             icon={<FiMail />}
             label="E-posta"
           />
