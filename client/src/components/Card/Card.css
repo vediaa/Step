@@ -54,4 +54,5 @@
 .card.darkblue{
   background-color: var(--darkblue);
   color: var(--text-primary);
+  border: none;
 }
