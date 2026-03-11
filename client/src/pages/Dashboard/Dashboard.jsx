@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { FiBook, FiList, FiHelpCircle, FiBarChart2 } from "react-icons/fi";
 import Card from "../../components/Card/Card";
 import ThemeToggle from "../../components/ThemeToggle/ThemeToggle";
@@ -6,10 +7,40 @@ import "./Dashboard.css";
 import FlipCountdown from "../../components/FlipCountdown/FlipCountdown";
 
 const Dashboard = () => {
+  // 1. İsmi tutacağımız state (Başlangıçta boş)
+  const [isim, setIsim] = useState("");
+
+  // 2. Sayfa açılır açılmaz backend'e gidip VIP kartı gösteriyoruz
+  useEffect(() => {
+    const ismiGetir = async () => {
+      try {
+        const token = localStorage.getItem("token"); // Cebimizdeki token'ı alıyoruz
+
+        const res = await fetch("http://localhost:5001/api/user/data", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`, // Güvenlik görevlisine gösteriyoruz
+          },
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          // 3. Backend'den gelen 'ad' bilgisini state'e kaydediyoruz
+          setIsim(data.userData.ad);
+        }
+      } catch (error) {
+        console.error("İsim çekilemedi:", error);
+      }
+    };
+
+    ismiGetir();
+  }, []); // Boş dizi: Sadece sayfa ilk açıldığında çalışır
   return (
     <div className="dashboard">
       <div className="dashboard-header">
-        <h1 className="dashboard-title">Merhaba Vedia!</h1>
+        <h1 className="dashboard-title">Merhaba{isim ? `, ${isim} !` : ""}</h1>
         <ThemeToggle />
       </div>
 
