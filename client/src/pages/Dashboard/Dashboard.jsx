@@ -27,7 +27,7 @@ const Dashboard = () => {
         </Link>
 
         <Link to="/study-plan" className="feature-link">
-          <Card variant="accent" className="feature-card bg-darkblue">
+          <Card variant="darkblue" className="feature-card bg-darkblue">
             <div className="feature-icon dark-icon">
               <FiList />
             </div>

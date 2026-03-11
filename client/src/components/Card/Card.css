@@ -43,3 +43,15 @@
   color: var(--text-primary);
   border: none;
 }
+
+.card.white
+{
+  background-color: var(--white);
+  color: var(--text-primary);
+
+}
+
+.card.darkblue{
+  background-color: var(--darkblue);
+  color: var(--text-primary);
+}

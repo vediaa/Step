@@ -21,4 +21,42 @@ export const getUserData = async (req, res) => {
   } catch (error) {
     res.json({ success: false, message: error.message });
   }
+
+
+  
+};
+
+// Profil bilgilerini güncelleme fonksiyonu
+export const updateProfile = async (req, res) => {
+  try {
+    // 1. Güvenlik görevlisinden (userAuth) gelen kimliği alıyoruz
+    const userId = req.user.id; 
+    
+    // 2. React (Frontend) tarafından gönderilen yeni adı alıyoruz
+    // Not: React'te body: JSON.stringify({ ad: userData.name }) yazmıştık, o yüzden 'ad' olarak çekiyoruz.
+    const { ad } = req.body; 
+
+    // Boş isim gönderilmesini engelle
+    if (!ad || ad.trim() === "") {
+      return res.json({ success: false, message: "Lütfen geçerli bir isim girin." });
+    }
+
+    // 3. Kullanıcıyı veritabanında bul
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.json({ success: false, message: "Kullanıcı bulunamadı." });
+    }
+
+    // 4. shenadaki nem olduğu için
+    user.name = ad; 
+    await user.save();
+
+    return res.json({ 
+      success: true, 
+      message: "Profil bilgileriniz başarıyla güncellendi." 
+    });
+
+  } catch (error) {
+    return res.json({ success: false, message: error.message });
+  }
 };

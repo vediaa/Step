@@ -18,8 +18,8 @@
   position: relative;
   background: linear-gradient(
     135deg,
-    var(--secondary-color),
-    var(--secondary-color)
+    var(--logoblue),
+    var(--darkblue)
   ); 
   border-radius: 12px;
   display: flex;
@@ -109,9 +109,9 @@
   /*color: var(--secondary-color);*/
 
   background: linear-gradient(
-    135deg,
+    13deg,
     var(--purple),
-    var(--darkred)
+    var(--logoblue)
   );  
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 

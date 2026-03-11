@@ -211,37 +211,31 @@ export const sendResetOtp = async (req, res) => {
     };
     await transporter.sendMail(mailOption);
     return res.json({
-      succes: true,
+      success: true,
       massage: "Şifre sıfırlamak için OTP kodu gönderildi",
     });
   } catch (error) {
-    return res.json({ succes: false, massage: error.message });
+    return res.json({ success: false, massage: error.message });
   }
 };
-
-//şifre sıfırla
 
 export const resetPassword = async (req, res) => {
   const { email, otp, newPassword } = req.body;
 
   if (!email || !otp || !newPassword) {
-    return res.json({
-      succes: false,
-      massage: "email otp ve şifre gereklidir",
-    });
+    return res.json({ success: false, message: "Email, OTP ve şifre gereklidir" });
   }
 
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res.json({ success: false, message: "kulalnıcı bulunamnameı" });
+      return res.json({ success: false, message: "Kullanıcı bulunamadı" });
     }
     if (user.resetOtp === "" || user.resetOtp !== otp) {
-      return res.json({ succes: false, massage: "OTP geçersiz" });
+      return res.json({ success: false, message: "OTP geçersiz" });
     }
-
     if (user.resetOtpExpireAt < Date.now()) {
-      return res.json({ succes: false, massage: "OTP nin süresi doldu" });
+      return res.json({ success: false, message: "OTP'nin süresi doldu" });
     }
 
     const hashedPassword = await bcrypt.hash(newPassword, 10);
@@ -251,11 +245,10 @@ export const resetPassword = async (req, res) => {
     user.resetOtpExpireAt = 0;
 
     await user.save();
-    return res.json({
-      succes: false,
-      massage: "Şifreniz başarılı bir şekilde güncellendi",
-    });
+    
+    // DİKKAT: Burası true olmalı!
+    return res.json({ success: true, message: "Şifreniz başarılı bir şekilde güncellendi" });
   } catch (error) {
-    return res.json({ succes: false, massage: error.message });
+    return res.json({ success: false, message: error.message });
   }
 };

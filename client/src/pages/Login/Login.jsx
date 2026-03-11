@@ -84,12 +84,12 @@ const Login = () => {
             />
 
             <div className="form-footer">
-              <Link to="/forgot-password" className="forgot-link">
+              <Link to="/send-password" className="forgot-link">
                 Şifreni mi unuttun?
               </Link>
             </div>
 
-            <Button type="submit" variant="primary" fullWidth>
+            <Button type="submit" variant="yellow" fullWidth>
               Giriş Yap
             </Button>
           </form>

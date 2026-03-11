@@ -60,6 +60,25 @@
   color: white;
 }
 
+.custom-button.darkblue{
+  background-color: var(--darkblue);
+  color: #ffffff; /* Yazı rengi beyaz olsun ki okunsun */
+  border: 1px solid #000000;
+}
+
+.custom-button.darkblue:hover {
+  background-color: var(--neongreen);
+  border-color: var(--neongreen);
+}
+
+.custom-button.yellow {
+  background: linear-gradient(
+    135deg,
+    var(--accent-color),
+    var(--accent-color)
+  );
+  color: white;
+}
 .custom-button.full-width {
   width: 100%;
 }

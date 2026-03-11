@@ -14,19 +14,19 @@
   border: 2px solid #e5e7eb;
   border-radius: 12px;
   background-color: #f9fafb;
-  color: #1f2937;
+  color: #6f88aa;
   transition: all 0.3s ease;
-  outline: none;
+  /*outline: none;*/
 }
 
 /* Kutuya tıklandığında (focus) mavi yanması */
 .otp-input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  border-color: rgba(14, 105, 35, 0.1);
+  box-shadow: 0 0 0 5px rgba(97, 140, 136, 0.1);
   background-color: #ffffff;
 }
 
 /* Kutu dolduğunda biraz daha belirgin olması */
 .otp-input:not(:placeholder-shown) {
-  border-color: #9ca3af;
+  border-color: var(--purple);
 }

@@ -4,7 +4,10 @@
   align-items: center;
   justify-content: center;
   padding: 40px 24px;
-  background-color: var(--bg-secondary);
+  min-height: 100vh; 
+  width: 100%; 
+  background-color: var(--darkblue); 
+
 }
 
 .auth-container {
@@ -32,7 +35,7 @@
 .auth-title {
   font-size: 28px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--purple);
   margin: 0;
 }
 
@@ -56,7 +59,7 @@
 
 .forgot-link {
   font-size: 14px;
-  color: var(--primary-color);
+  color: var(--neongreen);
   text-decoration: none;
   font-weight: 500;
 }
@@ -96,7 +99,7 @@
 }
 
 .auth-switch a {
-  color: var(--primary-color);
+  color: var(--neongreen);
   text-decoration: none;
   font-weight: 600;
 }
