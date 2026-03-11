@@ -1,0 +1,85 @@
+/* pages/Exams/components/ExamInput/ExamInput.css */
+
+.exam-input-card {
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.exam-input-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--black, #212121);
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subjects-container {
+  margin: 24px 0;
+}
+
+.subjects-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-grey, #424242);
+  margin: 0 0 16px 0;
+}
+
+.subjects-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.warning-box {
+  padding: 16px;
+  background: #fff9e6;
+  border: 1px solid var(--yellow, #f8de22);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.warning-box p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #8b6914;
+}
+
+.total-net-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--purple, #a58392) 0%, var(--dark-purple, #7b1fa2) 100%);
+  border-radius: 12px;
+  margin: 24px 0 16px 0;
+  box-shadow: 0 4px 16px rgba(165, 131, 146, 0.3);
+}
+
+.total-net-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+.total-net-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  .exam-input-card {
+    padding: 16px;
+  }
+  
+  .total-net-label {
+    font-size: 16px;
+  }
+  
+  .total-net-value {
+    font-size: 28px;
+  }
+}

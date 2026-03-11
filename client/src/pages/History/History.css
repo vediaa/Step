@@ -1,0 +1,175 @@
+.history-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', sans-serif; /* Projendeki fontu kullanabilirsin */
+}
+
+.history-header {
+  margin-bottom: 30px;
+}
+
+.history-header h2 {
+  font-size: 24px;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.history-header p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.exam-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ANA KART TASARIMI */
+.exam-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 6px solid #e5e7eb; /* Varsayılan Gri Çizgi */
+}
+
+.exam-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* --- BAŞARI (YEŞİL) VE BAŞARISIZLIK (KIRMIZI) DURUMLARI --- */
+
+/* Hedef Geçildiyse */
+.exam-card.target-success {
+  border-left-color: #10b981; /* Zümrüt Yeşili Çizgi */
+}
+.exam-card.target-success .score-value {
+  color: #047857; /* Koyu Yeşil Metin */
+  background-color: #d1fae5; /* Açık Yeşil Arkaplan */
+}
+
+/* Hedefin Altında Kaldıysa */
+.exam-card.target-fail {
+  border-left-color: #ef4444; /* Kırmızı Çizgi */
+}
+.exam-card.target-fail .score-value {
+  color: #b91c1c; /* Koyu Kırmızı Metin */
+  background-color: #fee2e2; /* Açık Kırmızı Arkaplan */
+}
+
+/* --- İÇERİK STİLLERİ --- */
+
+.exam-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exam-tags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.tyt {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.badge.ayt {
+  background-color: #fce7f3;
+  color: #9d174d;
+}
+
+.exam-date {
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.exam-name {
+  margin: 0;
+  font-size: 18px;
+  color: #111827;
+  font-weight: 600;
+}
+
+/* SKOR BÖLÜMÜ */
+.exam-score {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.score-label {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.score-value {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 24px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.arrow {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Yükleniyor ve Boş Durum Stilleri */
+.loading-text {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.empty-history {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.add-exam-btn {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.2s;
+}
+
+.add-exam-btn:hover {
+  background-color: #2563eb;
+}

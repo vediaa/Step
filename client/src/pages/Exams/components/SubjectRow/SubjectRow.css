@@ -1,0 +1,234 @@
+/* pages/Exams/components/SubjectRow/SubjectRow.css */
+
+.subject-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.subject-row:hover {
+  border-color: var(--purple, #a58392);
+  box-shadow: 0 2px 8px rgba(165, 131, 146, 0.1);
+}
+
+/* Ders Adı */
+.subject-label-container {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.subject-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black, #212121);
+}
+
+.subject-max {
+  font-size: 14px;
+  color: var(--grey, #9e9e9e);
+  font-weight: 500;
+}
+
+/* Input Container */
+.subject-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+@media (max-width: 480px) {
+  .subject-inputs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .net-result-container {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Input Wrapper */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.subject-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid var(--light-grey, #e0e0e0);
+  border-radius: 8px;
+  background: white;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.subject-input:focus {
+  border-color: var(--purple, #a58392);
+  box-shadow: 0 0 0 3px rgba(165, 131, 146, 0.1);
+}
+
+.subject-input.error {
+  border-color: var(--dark-red, #a41f13);
+  background: #fff5f5;
+}
+
+.subject-input.auto-filled {
+  background: #f0f9ff;
+  border-color: var(--blue, #5dade2);
+  color: var(--blue, #5dade2);
+  cursor: not-allowed;
+}
+
+.subject-input::placeholder {
+  color: var(--grey, #9e9e9e);
+  font-weight: 500;
+}
+
+.subject-input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Input Label */
+.input-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--grey, #9e9e9e);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Input Error */
+.input-error {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  right: 0;
+  font-size: 10px;
+  color: var(--dark-red, #a41f13);
+  text-align: center;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Net Sonucu */
+.net-result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: linear-gradient(135deg, var(--purple, #a58392) 0%, var(--dark-purple, #7b1fa2) 100%);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(165, 131, 146, 0.2);
+}
+
+.net-result {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+
+.net-label-small {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Progress Bar */
+.subject-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background: var(--light-grey, #e0e0e0);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple, #a58392) 0%, var(--dark-purple, #7b1fa2) 100%);
+  transition: width 0.3s ease;
+  border-radius: 3px;
+}
+
+.progress-bar.over-limit {
+  background: linear-gradient(90deg, var(--dark-red, #a41f13) 0%, #8b1610 100%);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-text {
+  font-size: 12px;
+  color: var(--grey, #9e9e9e);
+  font-weight: 500;
+}
+
+.progress-text.error {
+  color: var(--dark-red, #a41f13);
+  font-weight: 700;
+}
+
+.progress-percentage {
+  font-size: 12px;
+  color: var(--dark-grey, #424242);
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.subject-input.error {
+  animation: shake 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .subject-row {
+    padding: 14px;
+  }
+  
+  .subject-label {
+    font-size: 15px;
+  }
+  
+  .subject-input {
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+  
+  .net-result {
+    font-size: 18px;
+  }
+}
