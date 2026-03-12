@@ -5,7 +5,7 @@ import OverviewStats from "./components/OverviewStats/OverviewStats";
 import ZoomableTrendChart from "./components/ZoomableTrendChart/ZoomableTrendChart";
 import SubjectAnalysisCard from "./components/SubjectAnalysisCard/SubjectAnalysisCard";
 import Button from "../../components/Button/Button";
-import "./Analysis.css";
+import "./Analysis.scss";
 
 // Vite'da ortam değişkenleri process.env ile değil, import.meta.env ile okunur.
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api";

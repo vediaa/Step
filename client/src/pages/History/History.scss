@@ -8,6 +8,9 @@
   padding-bottom: 40px;
 }
 
+.history-container{
+
+
 .history-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -30,7 +33,7 @@
   flex: 1;
 }
 
-.history-container.page-title {
+.page-title {
   font-size: 32px;
   font-weight: 700;
   color: var(--black, #212121);
@@ -212,4 +215,5 @@
   .empty-title {
     font-size: 20px;
   }
+}
 }

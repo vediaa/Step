@@ -1258,7 +1258,7 @@
   background-color: var(--white);
   min-height: 100vh;
   padding-bottom: 80px;
-}
+
 
 .soru-yonetimi-content {
   max-width: 1400px;
@@ -1287,10 +1287,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.soru-yonetimi-container.page-title {
+.page-title {
   font-size: 28px;
   font-weight: bold;
-  color: var(--darkblue);
+  color: var(--purple);
 }
 
 .foto-ekle-button {
@@ -1996,4 +1996,4 @@
     padding: 3px 8px;
     font-size: 10px;
   }
-}
+}}

@@ -1288,7 +1288,7 @@ import TargetSettings from "./components/TargetSettings/TargetSettings";
 import ExamInput from "./components/ExamInput/ExamInput";
 import QuickAnalysis from "./components/QuickAnalysis/QuickAnalysis";
 import Button from "../../components/Button/Button";
-import "./Exams.css";
+import "./Exams.scss";
 
 // Vite'da ortam değişkenleri process.env ile değil, import.meta.env ile okunur.
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api";

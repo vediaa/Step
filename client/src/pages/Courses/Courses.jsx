@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Card from "../../components/Card/Card";
-import "./Courses.css";
+import "./Courses.scss";
 
 const Dersler = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -24,7 +24,7 @@ const Dersler = () => {
         "http://localhost:5001/api/progress/curriculum",
         {
           headers: { Authorization: `Bearer ${token}` },
-        }
+        },
       );
       const curriculumData = await curriculumRes.json();
       console.log("📚 Curriculum yüklendi:", curriculumData);
@@ -68,7 +68,7 @@ const Dersler = () => {
         newProgress[subjectId][topicId] = !currentValue;
 
         console.log(
-          `✓ UI güncellendi: ${subjectId}.${topicId} = ${currentValue} → ${!currentValue}`
+          `✓ UI güncellendi: ${subjectId}.${topicId} = ${currentValue} → ${!currentValue}`,
         );
         console.log("📋 Yeni progress:", newProgress);
 
@@ -88,7 +88,7 @@ const Dersler = () => {
             subjectId: String(subjectId),
             topicId: String(topicId),
           }),
-        }
+        },
       );
 
       if (response.ok) {
@@ -128,7 +128,7 @@ const Dersler = () => {
   const getCompletionPercentage = (subjectId, topics) => {
     if (!progress[subjectId]) return 0;
     const completed = topics.filter(
-      (topic) => progress[subjectId]?.[topic.id] === true
+      (topic) => progress[subjectId]?.[topic.id] === true,
     ).length;
     return Math.round((completed / topics.length) * 100);
   };
@@ -163,7 +163,7 @@ const Dersler = () => {
           {Object.values(progress).reduce(
             (total, subject) =>
               total + Object.values(subject || {}).filter(Boolean).length,
-            0
+            0,
           )}
         </div>
 
@@ -195,7 +195,7 @@ const Dersler = () => {
                         style={{
                           width: `${getCompletionPercentage(
                             subject.id,
-                            subject.topics
+                            subject.topics,
                           )}%`,
                         }}
                       />
@@ -267,7 +267,7 @@ const Dersler = () => {
                         style={{
                           width: `${getCompletionPercentage(
                             subject.id,
-                            subject.topics
+                            subject.topics,
                           )}%`,
                         }}
                       />

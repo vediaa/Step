@@ -237,7 +237,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card/Card";
 import Button from "../../components/Button/Button";
-import "./GecmisDenemeler.css";
+import "./GecmisDenemeler.scss";
 
 const GecmisDenemeler = () => {
   const navigate = useNavigate();
@@ -377,8 +377,8 @@ const GecmisDenemeler = () => {
               status === "success"
                 ? "success-text"
                 : status === "warning"
-                ? "warning-text"
-                : "normal-text"
+                  ? "warning-text"
+                  : "normal-text"
             }
           >
             {exam.totalNet}

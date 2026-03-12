@@ -469,7 +469,7 @@ import {
   FiX,
   FiFolder,
 } from "react-icons/fi";
-import "./Questions.css";
+import "./Questions.scss";
 
 const API_URL = "http://localhost:5001/api"; //process.env.REACT_APP_API_URL ||
 
@@ -644,7 +644,7 @@ const SoruYonetimi = () => {
 
       if (result.success) {
         setSorular((prev) =>
-          prev.map((s) => (s._id === mevcutSoru._id ? result.data : s))
+          prev.map((s) => (s._id === mevcutSoru._id ? result.data : s)),
         );
         setModalGorunur(false);
         setAktifKategori(cozuldu ? zorluk : "cozulmemis");

@@ -6,7 +6,7 @@
   background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
   padding: 20px;
   padding-bottom: 40px;
-}
+
 
 .analysis-content {
   max-width: 1400px;
@@ -30,7 +30,7 @@
   flex: 1;
 }
 
-.analysis-container .page-title {
+ .page-title {
   font-size: 36px;
   font-weight: 700;
   color: var(--black, #212121);
@@ -233,4 +233,4 @@
   .action-icon {
     font-size: 40px;
   }
-}
+}}

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ExamCard from "./components/ExamCard/ExamCard";
 import FilterBar from "./components/FilterBar/FilterBar";
 import Button from "../../components/Button/Button";
-import "./History.css";
+import "./History.scss";
 
 // Vite'da ortam değişkenleri process.env ile değil, import.meta.env ile okunur.
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
