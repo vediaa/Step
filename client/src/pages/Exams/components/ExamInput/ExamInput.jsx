@@ -330,7 +330,7 @@ const ExamInput = ({ targetBranch, onSave }) => {
 
       {/* Kaydet Butonu */}
       <Button
-        variant="primary"
+        variant="logoblue"
         fullWidth
         onClick={handleSubmit}
         disabled={loading}

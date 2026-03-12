@@ -1,153 +1,4 @@
-/* .courses-page {
-  padding: 32px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
 
-.courses-header {
-  margin-bottom: 24px;
-}
-
-.page-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.exam-tabs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 32px;
-}
-
-.exam-tab {
-  padding: 16px;
-  font-size: 18px;
-  font-weight: 600;
-  border: 2px solid var(--border-color);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-.exam-tab.active.primary {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
-.exam-tab.active.accent {
-  background-color: var(--bg-tertiary);
-  color: white;
-  border-color: var(--bg-tertiary);
-}
-
-.courses-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.course-item {
-  width: 100%;
-}
-
-.course-card {
-  cursor: pointer;
-}
-
-.course-header-content {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.course-name {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.course-stats {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.course-stats svg {
-  font-size: 20px;
-  color: var(--text-primary);
-  flex-shrink: 0;
-}
-
-.topics-list {
-  background-color: var(--bg-primary);
-  border: 2px solid var(--border-color);
-  border-top: none;
-  border-radius: 0 0 16px 16px;
-  padding: 16px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.topic-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.topic-item:last-child {
-  border-bottom: none;
-}
-
-.topic-checkbox {
-  width: 24px;
-  height: 24px;
-  border: 2px solid var(--border-color);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.topic-checkbox.checked {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  color: #333;
-}
-
-.topic-name {
-  font-size: 16px;
-  color: var(--text-primary);
-}
-
-.topic-name.completed {
-  text-decoration: line-through;
-  color: var(--text-tertiary);
-}
-
-@media (max-width: 640px) {
-  .courses-page {
-    padding: 16px;
-  }
-
-  .page-title {
-    font-size: 24px;
-  }
-
-  .course-name {
-    font-size: 18px;
-  }
-}
- */
 
  /* Mobil koddaki renkler */
 :root {
@@ -163,14 +14,46 @@
 }
 
 .dersler-container {
-  background-color: var(--background);
+ background-color: var(--background);
   min-height: 100vh;
-  padding: 15px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @media (min-width: 992px) {
+    flex-direction: row; 
+    align-items: flex-start; 
+    justify-content: center;
+    padding: 40px;
+  }
+ 
 
 
-.dersler-content {
-  max-width: 900px;
-  margin: 0 auto;
+.tyt-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media (min-width: 992px) {
+    flex: 1; 
+    max-width: 700px; 
+  }
+}
+
+.ayt-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media (min-width: 992px) {
+    flex: 1; 
+    max-width: 700px; 
+  }
+  
+  
 }
 
 .page-title {

@@ -8,13 +8,13 @@
 }
 
 .exam-card.success {
-  border-left-color: #4caf50;
-  background: linear-gradient(to right, rgba(76, 175, 80, 0.05), white);
+  border-left-color: #3d8e5c;
+  background: linear-gradient(to right, rgba(7, 186, 13, 0.05), white);
 }
 
 .exam-card.warning {
-  border-left-color: #f44336;
-  background: linear-gradient(to right, rgba(244, 67, 54, 0.05), white);
+  border-left-color: #c93e17;
+  background: linear-gradient(to right, rgba(255, 47, 47, 0.087), rgb(255, 255, 255));
 }
 
 .exam-card:hover {
@@ -71,18 +71,18 @@
 }
 
 .exam-badge.type-tyt {
-  background: #e3f2fd;
-  color: #1976d2;
+  background: #D96868;
+  color:#ffffff ;
 }
 
 .exam-badge.type-ayt {
-  background: #f3e5f5;
-  color: #7b1fa2;
+  background:#574964 ;
+  color:#ffffff ;
 }
 
 .exam-badge.branch {
   background: #fff3e0;
-  color: #e65100;
+  color: #e65400;
 }
 
 /* Net Display */
@@ -118,7 +118,7 @@
 }
 
 .exam-net-value.warning {
-  color: #f44336;
+  color: #d51f12;
 }
 
 /* Target Status */
@@ -139,7 +139,7 @@
 
 .exam-target-status.warning {
   background: #ffebee;
-  color: #c62828;
+  color: #b40000;
 }
 
 .status-icon {
@@ -155,7 +155,7 @@
   width: 100%;
   padding: 10px;
   background: none;
-  border: 1px solid var(--light-grey, #e0e0e0);
+  border: 1px solid var(--neongreen, #601818);
   border-radius: 8px;
   color: var(--dark-grey, #424242);
   font-size: 14px;
@@ -166,7 +166,8 @@
 }
 
 .details-toggle:hover {
-  background: var(--light-grey, #e0e0e0);
+  background: var(--neongreen);
+  color: #ffffff;
 }
 
 /* Details */

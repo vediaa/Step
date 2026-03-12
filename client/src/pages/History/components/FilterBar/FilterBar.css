@@ -49,8 +49,8 @@
 }
 
 .filter-btn.active {
-  border-color: var(--purple, #a58392);
-  background: var(--purple, #a58392);
+  border-color: var(--info-color, #a58392);
+  background: var(--info-color, #a58392);
   color: white;
   box-shadow: 0 2px 8px rgba(165, 131, 146, 0.3);
 }

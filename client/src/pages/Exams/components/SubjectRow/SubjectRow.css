@@ -87,8 +87,8 @@
 
 .subject-input.auto-filled {
   background: #f0f9ff;
-  border-color: var(--blue, #5dade2);
-  color: var(--blue, #5dade2);
+  border-color: var(--neongreen, #5dade2);
+  color: var(--neongreen, #5dade2);
   cursor: not-allowed;
 }
 
@@ -134,7 +134,7 @@
   align-items: center;
   justify-content: center;
   padding: 8px;
-  background: linear-gradient(135deg, var(--purple, #a58392) 0%, var(--dark-purple, #7b1fa2) 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color) 100%);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(165, 131, 146, 0.2);
 }
@@ -170,7 +170,7 @@
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--purple, #a58392) 0%, var(--dark-purple, #7b1fa2) 100%);
+  background: linear-gradient(90deg, var(--neongreen, #a58392) 0%, var(--neongreen, #7b1fa2) 100%);
   transition: width 0.3s ease;
   border-radius: 3px;
 }

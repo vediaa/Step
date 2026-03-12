@@ -13,12 +13,44 @@
 .ders-programi-container {
   background-color: var(--background);
   min-height: 100vh;
-  padding: 15px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @media (min-width: 992px) {
+    flex-direction: row; 
+    align-items: flex-start; 
+    justify-content: center;
+    padding: 40px;
+  }
 }
 
 .ders-programi-content {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media (min-width: 992px) {
+    flex: 1; 
+    max-width: 700px; 
+  }
+  
+  
+}
+
+/* SAĞ TARAF: GÖREVLER VE FORM KUTUSU */
+.tasks-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media (min-width: 992px) {
+    flex: 1; 
+    max-width: 700px; 
+  }
 }
 
 /* Takvim Toggle Butonu */
@@ -267,6 +299,15 @@
   bottom: 15px;
   background-color: var(--background);
   padding: 10px 0;
+  /* Mobilde alta yapışık kalsın ama webde listenin hemen altında olsun */
+  @media (min-width: 992px) {
+    position: static; 
+    margin-top: 10px;}
+
+  @media (max-width: 991px) {
+    position: sticky;
+    bottom: 15px;
+  }  
 }
 
 .task-input {

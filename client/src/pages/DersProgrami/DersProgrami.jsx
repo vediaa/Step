@@ -6,11 +6,11 @@ import { FiCalendar, FiEdit3, FiTrash2 } from "react-icons/fi";
 
 const DersProgrami = () => {
   const [selectedDate, setSelectedDate] = useState(
-    new Date().toISOString().split("T")[0]
+    new Date().toISOString().split("T")[0],
   );
   const [tasks, setTasks] = useState({});
   const [newTask, setNewTask] = useState("");
-  const [showCalendar, setShowCalendar] = useState(false);
+  const [showCalendar, setShowCalendar] = useState(true);
   const [editingTask, setEditingTask] = useState(null);
 
   const API_BASE_URL = "http://localhost:5001/api/tasks";
@@ -106,7 +106,7 @@ const DersProgrami = () => {
     setTasks((prev) => ({
       ...prev,
       [selectedDate]: prev[selectedDate].map((task) =>
-        task.id === taskId ? { ...task, completed: newStatus } : task
+        task.id === taskId ? { ...task, completed: newStatus } : task,
       ),
     }));
 
@@ -192,7 +192,7 @@ const DersProgrami = () => {
     const [year, month] = selectedDate.split("-");
     const newDate = `${year}-${month.padStart(2, "0")}-${String(day).padStart(
       2,
-      "0"
+      "0",
     )}`;
     setSelectedDate(newDate);
     setShowCalendar(false);
@@ -200,13 +200,13 @@ const DersProgrami = () => {
 
   return (
     <div className="ders-programi-container">
+      {/* SOL TARAF: TAKVİM ALANI */}
       <div className="ders-programi-content">
         <button
           className="calendar-toggle-button"
           onClick={() => setShowCalendar(!showCalendar)}
         >
           <FiCalendar className="calendar-icon" />
-
           <span className="calendar-date-text">{formatDate(selectedDate)}</span>
           <span className="calendar-arrow">{showCalendar ? "▲" : "▼"}</span>
         </button>
@@ -244,10 +244,7 @@ const DersProgrami = () => {
               <div className="calendar-days">
                 {generateCalendarDays().map((day, index) => {
                   const dateString = day
-                    ? `${selectedDate.substring(0, 8)}${String(day).padStart(
-                        2,
-                        "0"
-                      )}`
+                    ? `${selectedDate.substring(0, 8)}${String(day).padStart(2, "0")}`
                     : null;
                   const hasTask =
                     dateString &&
@@ -258,11 +255,7 @@ const DersProgrami = () => {
                   return (
                     <button
                       key={index}
-                      className={`calendar-day ${
-                        !day ? "calendar-day-empty" : ""
-                      } ${isSelected ? "calendar-day-selected" : ""} ${
-                        hasTask ? "calendar-day-marked" : ""
-                      }`}
+                      className={`calendar-day ${!day ? "calendar-day-empty" : ""} ${isSelected ? "calendar-day-selected" : ""} ${hasTask ? "calendar-day-marked" : ""}`}
                       onClick={() => selectDay(day)}
                       disabled={!day}
                     >
@@ -274,7 +267,10 @@ const DersProgrami = () => {
             </div>
           </Card>
         )}
+      </div>
 
+      {/* SAĞ TARAF: GÖREVLER VE FORM ALANI */}
+      <div className="tasks-container">
         <div className="tasks-list">
           {(tasks[selectedDate] || []).length === 0 ? (
             <Card>
@@ -291,16 +287,12 @@ const DersProgrami = () => {
                     onClick={() => toggleTaskCompletion(task.id)}
                   >
                     <div
-                      className={`task-checkbox ${
-                        task.completed ? "task-checkbox-completed" : ""
-                      }`}
+                      className={`task-checkbox ${task.completed ? "task-checkbox-completed" : ""}`}
                     >
                       {task.completed && <span className="checkmark">✓</span>}
                     </div>
                     <span
-                      className={`task-text ${
-                        task.completed ? "task-text-completed" : ""
-                      }`}
+                      className={`task-text ${task.completed ? "task-text-completed" : ""}`}
                     >
                       {task.text}
                     </span>

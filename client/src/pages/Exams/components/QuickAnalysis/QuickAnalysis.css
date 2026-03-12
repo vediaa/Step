@@ -98,7 +98,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(135deg, var(--purple, #a58392) 0%, var(--dark-purple, #7b1fa2) 100%);
+  background: linear-gradient(135deg, var(--logoblue) 0%, var(--logoblue) 100%);
   border-radius: 12px;
   margin-bottom: 16px;
   box-shadow: 0 4px 12px rgba(165, 131, 146, 0.3);
@@ -131,7 +131,7 @@
 
 .comparison-box.warning {
   background: #fff3e0;
-  border: 1px solid #ff9800;
+  border: 1px solid #D96868;
 }
 
 .comparison-text {
@@ -157,7 +157,7 @@
 
 .target-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #ff9800, #f57c00);
+  background: linear-gradient(90deg, #D96868, #a64949);
   border-radius: 4px;
   transition: width 0.3s ease;
 }

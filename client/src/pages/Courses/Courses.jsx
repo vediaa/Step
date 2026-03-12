@@ -3,6 +3,7 @@ import Card from "../../components/Card/Card";
 import "./Courses.scss";
 
 const Dersler = () => {
+  const [openSections, setOpenSections] = useState(["tyt", "ayt"]);
   const [activeSection, setActiveSection] = useState(null);
   const [expandedSubject, setExpandedSubject] = useState(null);
   const [progress, setProgress] = useState({});
@@ -147,8 +148,8 @@ const Dersler = () => {
 
   return (
     <div className="dersler-container">
-      <div className="dersler-content">
-        <h1 className="page-title">Derslerim</h1>
+      <div className="tyt-content">
+        {/* <h1 className="page-title">Derslerim</h1> */}
 
         {/* Debug bilgisi (geliştirme için) */}
         <div
@@ -238,7 +239,9 @@ const Dersler = () => {
             ))}
           </div>
         )}
+      </div>
 
+      <div className="ayt-content">
         {/* AYT Dersleri */}
         <button
           className="section-header-button ayt"

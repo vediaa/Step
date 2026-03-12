@@ -112,17 +112,19 @@ const Analysis = () => {
         {/* Header */}
         <div className="analysis-header">
           <div className="header-text">
-            <h1 className="page-title">📊 Detaylı Analiz</h1>
+            <h1 className="page-title">Detaylı Analiz</h1>
             <p className="page-subtitle">
               Performansını derinlemesine incele ve gelişim alanlarını keşfet
             </p>
           </div>
           <div className="header-actions">
-            <Button variant="secondary" onClick={() => navigate("/history")}>
-              📚 Geçmiş Denemeler
+            <Button variant="yellow" onClick={() => navigate("/history")}>
+              Geçmiş Denemeler
             </Button>
-            <Button variant="primary" onClick={() => navigate("/exams")}>
-              ➕ Yeni Deneme
+          </div>
+          <div>
+            <Button variant="logoblue" onClick={() => navigate("/exams")}>
+              Yeni Deneme +
             </Button>
           </div>
         </div>

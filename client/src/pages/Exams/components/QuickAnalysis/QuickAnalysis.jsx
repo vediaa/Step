@@ -9,7 +9,6 @@ const QuickAnalysis = ({ exam, targetNet }) => {
     return (
       <Card className="quick-analysis-card">
         <div className="no-exam-container">
-          <p className="no-exam-icon">📊</p>
           <p className="no-exam-text">Henüz deneme yok</p>
           <p className="no-exam-hint">İlk denemenizi ekleyerek başlayın!</p>
         </div>
@@ -34,7 +33,7 @@ const QuickAnalysis = ({ exam, targetNet }) => {
     const difference = exam.totalNet - targetNet;
     if (difference >= 0) {
       comparisonStatus = "success";
-      comparisonText = `🎉 Hedefi ${Math.abs(difference).toFixed(
+      comparisonText = `Hedefi ${Math.abs(difference).toFixed(
         2,
       )} net ile geçtin!`;
     } else {

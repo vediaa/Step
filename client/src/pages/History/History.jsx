@@ -182,15 +182,17 @@ const History = () => {
         {/* Header */}
         <div className="history-header">
           <div className="header-text">
-            <h1 className="page-title">📚 Geçmiş Denemelerim</h1>
+            <h1 className="page-title">Geçmiş Denemelerim</h1>
             <p className="page-subtitle">Toplam {exams.length} deneme</p>
           </div>
           <div className="header-actions">
-            <Button variant="secondary" onClick={() => navigate("/analysis")}>
-              📊 Detaylı Analiz
+            <Button variant="yellow" onClick={() => navigate("/analysis")}>
+              Detaylı Analiz
             </Button>
-            <Button variant="primary" onClick={() => navigate("/exams")}>
-              ➕ Yeni Deneme
+          </div>
+          <div>
+            <Button variant="logoblue" onClick={() => navigate("/exams")}>
+              Yeni Deneme +
             </Button>
           </div>
         </div>

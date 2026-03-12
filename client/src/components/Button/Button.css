@@ -71,6 +71,14 @@
   border-color: var(--neongreen);
 }
 
+.custom-button.logoblue{
+  background: linear-gradient(
+    135deg,
+    var(--logoblue),
+    var(--logoblue)
+  );
+  color: white;
+}
 .custom-button.yellow {
   background: linear-gradient(
     135deg,

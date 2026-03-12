@@ -125,7 +125,7 @@ const ExamCard = ({ exam, targetNet, onDelete, onViewDetails }) => {
               </>
             ) : (
               <>
-                <span className="status-icon">📊</span>
+                <span className="status-icon">❌</span>
                 <span className="status-text">
                   Hedefe {Math.abs(targetDifference)} net kaldı
                 </span>

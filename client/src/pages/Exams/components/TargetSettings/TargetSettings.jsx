@@ -108,7 +108,7 @@ const TargetSettings = ({ initialTargets, onSave }) => {
 
       {/* Kaydet Butonu */}
       <Button
-        variant="primary"
+        variant="logoblue"
         fullWidth
         onClick={handleSave}
         disabled={loading}
