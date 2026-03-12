@@ -4,7 +4,7 @@
   margin: 0 auto;
 }
 
-.page-title {
+.gecmis-denemeler-page.page-title {
   font-size: 28px;
   font-weight: 700;
   color: var(--text-primary);

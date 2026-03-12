@@ -18,6 +18,7 @@ import Questions from "./pages/Questions/Questions";
 import Profile from "./pages/Profile/Profile";
 import GecmisDenemeler from "./pages/GecmisDenemeler/GecmisDenemeler"; //bak buna
 import History from "./pages/History/History";
+import Analysis from "./pages/Analysis/Analysis";
 import DersProgrami from "./pages/DersProgrami/DersProgrami";
 import "./App.css";
 import "./color/Colors.css";
@@ -137,6 +138,22 @@ function App() {
                   <Sidebar />
                   <div className="main-content">
                     <History />
+                  </div>
+                </div>
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
+
+          <Route
+            path="/analysis"
+            element={
+              isAuthenticated ? (
+                <div className="app-layout">
+                  <Sidebar />
+                  <div className="main-content">
+                    <Analysis />
                   </div>
                 </div>
               ) : (

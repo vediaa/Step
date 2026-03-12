@@ -24,8 +24,8 @@
   height: 24px;
   background: linear-gradient(
     135deg,
-    var(--primary-color),
-    var(--secondary-color)
+    var(--logoblue),
+    var(--logoblue)
   );
   border-radius: 50%;
   position: absolute;

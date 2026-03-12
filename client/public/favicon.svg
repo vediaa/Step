@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#576A8F"/>
+      <stop offset="100%" stop-color="#26355D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="48" height="48" rx="12" fill="url(#logoGradient)" />
+
+  <!-- steps -->
+  <!-- toplam genişlik: 8 + 2 + 8 + 2 + 8 = 28 -->
+  <!-- ortalamak için başlangıç x: (48 - 28) / 2 = 10 -->
+  <g>
+
+    <rect x="10" y="26" width="8" height="8" fill="white" rx="2"/>
+    <rect x="20" y="20" width="8" height="14" fill="white" rx="2"/>
+    <rect x="30" y="14" width="8" height="20" fill="white" rx="2"/>
+
+  </g>
+
+</svg>

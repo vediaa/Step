@@ -1,0 +1,85 @@
+/* pages/History/components/FilterBar/FilterBar.css */
+
+.filter-bar {
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-grey, #424242);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 16px;
+  border: 2px solid var(--light-grey, #e0e0e0);
+  border-radius: 8px;
+  background: white;
+  color: var(--dark-grey, #424242);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--purple, #a58392);
+  background: rgba(165, 131, 146, 0.05);
+}
+
+.filter-btn.active {
+  border-color: var(--purple, #a58392);
+  background: var(--purple, #a58392);
+  color: white;
+  box-shadow: 0 2px 8px rgba(165, 131, 146, 0.3);
+}
+
+.filter-select {
+  padding: 10px 14px;
+  border: 2px solid var(--light-grey, #e0e0e0);
+  border-radius: 8px;
+  background: white;
+  color: var(--dark-grey, #424242);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.filter-select:focus {
+  border-color: var(--purple, #a58392);
+  box-shadow: 0 0 0 3px rgba(165, 131, 146, 0.1);
+}
+
+@media (max-width: 768px) {
+  .filter-bar {
+    padding: 16px;
+  }
+  
+  .filter-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}

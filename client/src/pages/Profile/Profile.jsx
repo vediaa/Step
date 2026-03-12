@@ -137,7 +137,7 @@ const Profile = () => {
   return (
     <div className="profile-page">
       <div className="profile-header">
-        <h1 className="page-title">Profil</h1>
+        {/*<h1 className="page-title">Profil</h1>*/}
       </div>
 
       <div className="profile-content">

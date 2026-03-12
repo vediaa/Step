@@ -1287,10 +1287,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.page-title {
+.soru-yonetimi-container.page-title {
   font-size: 28px;
   font-weight: bold;
-  color: var(--black);
+  color: var(--darkblue);
 }
 
 .foto-ekle-button {
