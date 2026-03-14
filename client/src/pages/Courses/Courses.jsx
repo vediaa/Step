@@ -4,7 +4,7 @@ import "./Courses.scss";
 
 const Dersler = () => {
   const [openSections, setOpenSections] = useState(["tyt", "ayt"]);
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState("tyt");
   const [expandedSubject, setExpandedSubject] = useState(null);
   const [progress, setProgress] = useState({});
   const [curriculum, setCurriculum] = useState({ tyt: [], ayt: [] });
@@ -175,7 +175,8 @@ const Dersler = () => {
         >
           <span className="section-title-text">TYT Dersleri</span>
           <span className="arrow-icon">
-            {activeSection === "tyt" ? "▲" : "▼"}
+            {/*             {activeSection === "tyt" ? "▲" : "▼"}
+             */}
           </span>
         </button>
 
@@ -253,66 +254,66 @@ const Dersler = () => {
           </span>
         </button>
 
-        {activeSection === "ayt" && (
-          <div className="section-content">
-            {curriculum.ayt.map((subject) => (
-              <Card key={subject.id} className="subject-card">
-                <button
-                  className="subject-header"
-                  style={{ backgroundColor: getSubjectColor("ayt") }}
-                  onClick={() => toggleSubject(subject.id)}
-                >
-                  <span className="subject-title">{subject.name}</span>
-                  <div className="progress-container">
-                    <div className="progress-bar-background">
-                      <div
-                        className="progress-bar-fill ayt"
-                        style={{
-                          width: `${getCompletionPercentage(
-                            subject.id,
-                            subject.topics,
-                          )}%`,
-                        }}
-                      />
-                    </div>
-                    <span className="progress-text">
-                      {getCompletionPercentage(subject.id, subject.topics)}%
-                    </span>
-                    <span className="arrow-icon">
-                      {expandedSubject === subject.id ? "▲" : "▼"}
-                    </span>
+        {/* {activeSection === "ayt" && ( */}
+        <div className="section-content">
+          {curriculum.ayt.map((subject) => (
+            <Card key={subject.id} className="subject-card">
+              <button
+                className="subject-header"
+                style={{ backgroundColor: getSubjectColor("ayt") }}
+                onClick={() => toggleSubject(subject.id)}
+              >
+                <span className="subject-title">{subject.name}</span>
+                <div className="progress-container">
+                  <div className="progress-bar-background">
+                    <div
+                      className="progress-bar-fill ayt"
+                      style={{
+                        width: `${getCompletionPercentage(
+                          subject.id,
+                          subject.topics,
+                        )}%`,
+                      }}
+                    />
                   </div>
-                </button>
+                  <span className="progress-text">
+                    {getCompletionPercentage(subject.id, subject.topics)}%
+                  </span>
+                  <span className="arrow-icon">
+                    {expandedSubject === subject.id ? "▲" : "▼"}
+                  </span>
+                </div>
+              </button>
 
-                {expandedSubject === subject.id && (
-                  <div className="topics-container">
-                    {subject.topics.map((topic) => (
-                      <div key={topic.id} className="topic-row">
-                        <label className="checkbox-label">
-                          <input
-                            type="checkbox"
-                            className="topic-checkbox ayt"
-                            checked={progress[subject.id]?.[topic.id] === true}
-                            onChange={() => toggleTopic(subject.id, topic.id)}
-                          />
-                          <span
-                            className={`topic-text ${
-                              progress[subject.id]?.[topic.id] === true
-                                ? "completed"
-                                : ""
-                            }`}
-                          >
-                            {topic.name}
-                          </span>
-                        </label>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </Card>
-            ))}
-          </div>
-        )}
+              {expandedSubject === subject.id && (
+                <div className="topics-container">
+                  {subject.topics.map((topic) => (
+                    <div key={topic.id} className="topic-row">
+                      <label className="checkbox-label">
+                        <input
+                          type="checkbox"
+                          className="topic-checkbox ayt"
+                          checked={progress[subject.id]?.[topic.id] === true}
+                          onChange={() => toggleTopic(subject.id, topic.id)}
+                        />
+                        <span
+                          className={`topic-text ${
+                            progress[subject.id]?.[topic.id] === true
+                              ? "completed"
+                              : ""
+                          }`}
+                        >
+                          {topic.name}
+                        </span>
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </Card>
+          ))}
+        </div>
+        {/* )} */}
       </div>
     </div>
   );

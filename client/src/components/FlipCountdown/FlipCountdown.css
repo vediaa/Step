@@ -6,6 +6,7 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   margin-bottom: 24px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* TYT - SAYAÇ - AYT Yatay Hizalaması */
@@ -160,4 +161,81 @@
   0%, 50% { z-index: -1; transform: rotateX(90deg); opacity: 0; }
   51% { opacity: 1; }
   100% { opacity: 1; transform: rotateX(0deg); z-index: 5; }
+}
+
+
+/* Mevcut CSS'in EN ALTINA şu mobil kodlarını ekle */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .countdown-row {
+    gap: 20px;
+  }
+
+  .side-btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    min-width: 80px;
+  }
+
+  .flip-card {
+    font-size: 3.5rem;
+  }
+}
+
+/* Mobil */
+@media (max-width: 640px) {
+  .countdown-container {
+    padding: 20px 16px;
+  }
+
+  .countdown-row {
+    gap: 10px;
+  }
+
+  .side-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 60px;
+    border-radius: 12px;
+  }
+
+  .flip-clock {
+    gap: 8px;
+  }
+
+  .flip-card {
+    font-size: 2rem;
+    min-width: 1.4em;
+  }
+
+  .flip-clock__slot {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+}
+
+/* Çok küçük telefon */
+@media (max-width: 400px) {
+  .countdown-row {
+    gap: 5px;
+  }
+
+  .side-btn {
+    padding: 6px 8px;
+    font-size: 12px;
+    min-width: 45px;
+  }
+
+  .flip-clock {
+    gap: 4px;
+  }
+
+  .flip-card {
+    font-size: 1.5rem;
+  }
+
+  .flip-clock__slot {
+    font-size: 10px;
+  }
 }

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { FiBook, FiList, FiHelpCircle, FiBarChart2 } from "react-icons/fi";
 import Card from "../../components/Card/Card";
 import ThemeToggle from "../../components/ThemeToggle/ThemeToggle";
-import "./Dashboard.css";
+import "./Dashboard.scss";
 import FlipCountdown from "../../components/FlipCountdown/FlipCountdown";
 
 const Dashboard = () => {

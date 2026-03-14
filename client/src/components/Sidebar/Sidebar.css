@@ -1,30 +1,69 @@
-/* Ana Sidebar Konteyneri */
+/* Sidebar.css - React Component için Güncellenmiş Versiyon */
+
+/* ===== CSS Değişkenleri (Tema Yönetimi) ===== */
+:root {
+  /* Açık Tema (Varsayılan) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9f9f9;
+  --sidebar-bg: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --text-muted: #777777;
+  --border-color: #eaeaea;
+  --hover-bg: #f5f5f5;
+  --active-bg: #f0f7ff;
+  --active-color: #2563eb;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Karanlık Tema - HTML'e 'dark' class'ı eklendiğinde aktif olur */
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --sidebar-bg: #242424;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --border-color: #404040;
+  --hover-bg: #333333;
+  --active-bg: #1e3a5f;
+  --active-color: #60a5fa;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Sidebar Ana Konteyner ===== */
 .sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
   height: 100vh;
-  background-color: #ffffff; /* Projene uygun rengi ayarla */
-  transition: width 0.3s ease; /* Pürüzsüz daralma animasyonu */
-  overflow-x: hidden; /* Daraldığında içeriğin taşmasını önler */
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  z-index: 1000;
+  box-shadow: var(--shadow);
 }
 
 /* Açık ve Kapalı Genişlikler */
 .sidebar.open {
-  width: 250px;
+  width: 280px;
 }
 
 .sidebar.closed {
   width: 80px;
 }
 
-/* Header (Logo ve Buton Kısmı) */
+/* ===== Sidebar Header ===== */
 .sidebar-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  height: 70px;
-  
+  height: 80px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 /* Logonun altındaki link çizgisini kaldırır */
@@ -32,13 +71,17 @@
   text-decoration: none;
 }
 
-/* Sidebar kapalıyken butonu ortala */
+/* Sidebar kapalıyken header düzeni */
 .sidebar.closed .sidebar-header {
   justify-content: center;
+  padding: 20px 0;
 }
 
+/* Logo wrapper */
 .logo-wrapper {
   transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
 }
 
 .logo-wrapper.hidden {
@@ -46,53 +89,273 @@
   display: none;
 }
 
-/* Toggle Butonu */
+/* Sidebar kapalıyken logoyu tamamen gizle */
+.sidebar.closed .logo-wrapper {
+  display: none;
+}
+
+/* ===== Toggle Butonu ===== */
 .toggle-btn {
   background: none;
   border: none;
   cursor: pointer;
-  color: #333;
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-/* Menü Elemanları */
+.toggle-btn:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+/* Sidebar kapalıyken butonun pozisyonu */
+.sidebar.closed .toggle-btn {
+  margin: 0 auto;
+}
+
+/* ===== Menü Navigasyonu ===== */
+.sidebar-nav {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Scrollbar stilleri (isteğe bağlı) */
+.sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+/* ===== Menü Öğeleri ===== */
 .sidebar-item {
   display: flex;
   align-items: center;
-  padding: 15px 20px;
+  padding: 12px 20px;
+  margin: 4px 8px;
   text-decoration: none;
-  color: #555;
-  white-space: nowrap; /* Metnin alt satıra geçmesini önler */
+  color: var(--text-secondary);
+  border-radius: 10px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-/* Sidebar kapalıyken ikonları ortala */
+/* Hover efekti */
+.sidebar-item:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+/* Aktif menü öğesi */
+.sidebar-item.active {
+  background-color: var(--active-bg);
+  color: var(--active-color);
+}
+
+.sidebar-item.active .sidebar-icon {
+  color: var(--active-color);
+}
+
+/* Sidebar kapalıyken menü öğeleri */
 .sidebar.closed .sidebar-item {
   justify-content: center;
-  padding: 35px 0;
+  padding: 15px 0;
+  margin: 4px 12px;
 }
 
+/* Tooltip - Sidebar kapalıyken hover'da ismi göster */
+.sidebar.closed .sidebar-item:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--sidebar-bg);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  margin-left: 10px;
+  z-index: 1001;
+}
+
+/* ===== Menü İkonları ===== */
 .sidebar-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 1. İkonun asıl boyutunu büyüten kısım: */
-  font-size: 20px;
+  font-size: 22px;
   min-width: 24px;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
+/* Açıkken ikon ile yazı arasına boşluk */
 .sidebar.open .sidebar-icon {
-  margin-right: 15px; /* Sadece açıkken ikon ile yazı arasına boşluk koy */
+  margin-right: 15px;
 }
 
-/* Menü Yazıları (Labels) */
+/* Kapalıyken ikon margin'i sıfırla */
+.sidebar.closed .sidebar-icon {
+  margin-right: 0;
+}
+
+/* ===== Menü Yazıları ===== */
 .sidebar-label {
+  font-size: 15px;
+  font-weight: 500;
   transition: opacity 0.3s ease;
   opacity: 1;
 }
 
-/* Sidebar kapalıyken yazıları gizle */
+/* Sidebar kapalıyken yazıları gizle (tooltip ile gösterilecek) */
 .sidebar.closed .sidebar-label {
   opacity: 0;
   display: none;
+}
+
+/* ===== Mobil Header (Üst Kutucuk) ===== */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--sidebar-bg);
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1001;
+  box-shadow: var(--shadow);
+}
+
+.mobile-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: 1px solid var(--border-color);
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+.mobile-menu-btn svg {
+  font-size: 20px;
+}
+
+/* ===== Ana İçerik Alanı ===== */
+.main-content {
+  margin-left: 280px; /* sidebar.open genişliği */
+  padding: 24px;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+/* Sidebar kapalıyken içerik kenar boşluğu */
+.sidebar.closed + .main-content {
+  margin-left: 80px;
+}
+
+/* ===== Responsive Tasarım (Mobil) ===== */
+@media (max-width: 768px) {
+  /* Mobil header'ı göster */
+  .mobile-header {
+    display: block;
+  }
+
+  /* Sidebar'ı mobilde gizle - transform ile */
+  .sidebar {
+    transform: translateX(-100%);
+    width: 280px !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Sidebar mobilde açıkken */
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  /* Mobilde open/closed class'larını geçersiz kıl */
+  .sidebar.open,
+  .sidebar.closed {
+    width: 280px !important;
+  }
+
+  /* Mobilde kapalıyken bile yazıları göster */
+  .sidebar.closed .sidebar-label {
+    display: block !important;
+    opacity: 1 !important;
+  }
+
+  .sidebar.closed .logo-wrapper {
+    display: flex !important;
+    opacity: 1 !important;
+  }
+
+  .sidebar.closed .sidebar-item {
+    justify-content: flex-start !important;
+    padding: 12px 20px !important;
+  }
+
+  .sidebar.closed .sidebar-icon {
+    margin-right: 15px !important;
+  }
+
+  .sidebar.closed .sidebar-header {
+    justify-content: space-between !important;
+    padding: 20px !important;
+  }
+
+  /* Tooltip'i mobilde gizle */
+  .sidebar.closed .sidebar-item:hover::after {
+    display: none;
+  }
+
+  /* Ana içerik mobilde tam genişlik */
+  .main-content {
+    margin-left: 0 !important;
+    padding: 90px 20px 20px; /* Üstte mobil header için boşluk */
+  }
+
+  /* Toggle butonunu mobilde gizle */
+  .toggle-btn {
+    display: none;
+  }
+}
+
+/* ===== Tablet için ara çözüm ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sidebar.open {
+    width: 240px;
+  }
+
+  .main-content {
+    margin-left: 240px;
+  }
 }

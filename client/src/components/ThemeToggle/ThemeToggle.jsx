@@ -20,7 +20,7 @@ const ThemeToggle = () => {
   return (
     <button
       className="theme-toggle"
-      onClick={toggleTheme}
+      /* onClick={toggleTheme} */
       aria-label="Toggle theme"
     >
       <div className={`toggle-track ${theme}`}>
