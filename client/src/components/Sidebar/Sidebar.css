@@ -163,11 +163,11 @@
 /* Aktif menü öğesi */
 .sidebar-item.active {
   background-color: var(--active-bg);
-  color: var(--active-color);
+  color: var(--logoblue);
 }
 
 .sidebar-item.active .sidebar-icon {
-  color: var(--active-color);
+  color: var(--logoblue);
 }
 
 /* Sidebar kapalıyken menü öğeleri */

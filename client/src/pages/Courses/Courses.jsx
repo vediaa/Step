@@ -135,7 +135,7 @@ const Dersler = () => {
   };
 
   const getSubjectColor = (type) => {
-    return type === "tyt" ? "#9E9E9E" : "#424242";
+    return type === "tyt" ? "var(--logoblue)" : "#9DBC98";
   };
 
   if (loading) {

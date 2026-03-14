@@ -49,7 +49,7 @@ const Dashboard = () => {
 
       <div className="features-grid">
         <Link to="/courses" className="feature-link">
-          <Card variant="secondary" className="feature-card">
+          <Card variant="darkpurple" className="feature-card">
             <div className="feature-icon">
               <FiBook />
             </div>
@@ -67,7 +67,7 @@ const Dashboard = () => {
         </Link>
 
         <Link to="/questions" className="feature-link">
-          <Card variant="primary" className="feature-card">
+          <Card variant="mor" className="feature-card">
             <div className="feature-icon">
               <FiHelpCircle />
             </div>
@@ -76,7 +76,7 @@ const Dashboard = () => {
         </Link>
 
         <Link to="/exams" className="feature-link">
-          <Card variant="dark" className="feature-card">
+          <Card variant="logoblue" className="feature-card">
             <div className="feature-icon">
               <FiBarChart2 />
             </div>

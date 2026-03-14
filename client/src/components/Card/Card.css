@@ -56,3 +56,31 @@
   color: var(--text-primary);
   border: none;
 }
+.card.green{
+  background-color: var(--green);
+  color: var(--text-primary);
+  border: none;
+}
+.card.yellow{
+  background-color: var(--accent-color);
+  color: var(--text-primary);
+  border: none;
+}
+
+.card.logoblue{
+  background-color: var(--logoblue);
+  color: var(--text-primary);
+  border: none;
+}
+
+.card.darkpurple{
+  background-color: var(--darkpurple);
+  color: var(--text-primary);
+  border: none;
+}
+
+.card.mor{
+  background-color: var(--mor);
+  color: var(--text-primary);
+  border: none;
+}

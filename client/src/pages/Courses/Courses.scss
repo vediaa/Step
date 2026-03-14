@@ -91,11 +91,11 @@
 }
 
 .section-header-button.tyt {
-  background-color: var(--dark-red);
+  background-color: var(--logoblue);
 }
 
 .section-header-button.ayt {
-  background-color: var(--dark-grey);
+  background-color: #9DBC98;
 }
 
 .section-header-button:hover {
@@ -168,7 +168,7 @@
 }
 
 .progress-bar-fill.tyt {
-  background-color: var(--dark-red);
+  background-color: var(--lightblue);
 }
 
 .progress-bar-fill.ayt {
@@ -212,7 +212,7 @@
   height: 20px;
   margin-right: 10px;
   cursor: pointer;
-  accent-color: var(--dark-red);
+  accent-color: var(--lightblue);
   flex-shrink: 0;
 }
 

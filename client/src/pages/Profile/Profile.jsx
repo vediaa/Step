@@ -170,7 +170,7 @@ const Profile = () => {
 
           <div className="profile-actions">
             {/* DİKKAT: Güncelleme fonksiyonunu buraya bağladık */}
-            <Button variant="primary" onClick={handleUpdateProfile}>
+            <Button variant="logoblue" onClick={handleUpdateProfile}>
               Bilgileri Güncelle
             </Button>
             <Button variant="outline" onClick={handleLogout}>
@@ -205,7 +205,7 @@ const Profile = () => {
               </p>
               <Button
                 type="button"
-                variant="primary"
+                variant="yellow"
                 onClick={handleSendOtp}
                 fullWidth
               >
