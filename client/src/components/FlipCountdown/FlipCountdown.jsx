@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./FlipCountdown.css";
+import "./FlipCountdown.scss";
 
 // --- TEK BİR RAKAM KUTUCUĞU ---
 const FlipCard = ({ label, value }) => {

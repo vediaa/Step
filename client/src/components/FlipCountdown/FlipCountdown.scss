@@ -1,13 +1,14 @@
 /* Ana Kapsayıcı Kart */
 .countdown-container {
   background-color: #ffffff;
-  padding: 40px 24px;
-  border-radius: 16px;
+/*   padding: 40px ; // width ile aynı anda olunca sıkınıtı yarattı
+ */  border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   margin-bottom: 24px;
   width: 100%;
   box-sizing: border-box;
-}
+  overflow: hidden; 
+
 
 /* TYT - SAYAÇ - AYT Yatay Hizalaması */
 .countdown-row {
@@ -20,8 +21,8 @@
 
 /* Sağ ve Sol Buton Stilleri */
 .side-btn {
-  padding: 15px 30px;
-  background-color: #f9fafb;
+padding: 15px 30px;
+ background-color: #f9fafb;
   border: 2px solid #f3f4f6;
   font-weight: 800;
   font-size: 20px;
@@ -46,6 +47,8 @@
 
 /* --- FLIP CLOCK (DEV YAPRAK SAAT) --- */
 .flip-clock {
+  padding-top: 30px;
+  padding-bottom: 10px;
   text-align: center;
   perspective: 800px;
   display: flex;
@@ -186,7 +189,7 @@
 /* Mobil */
 @media (max-width: 640px) {
   .countdown-container {
-    padding: 20px 16px;
+    padding: 30px 16px;
   }
 
   .countdown-row {
@@ -196,8 +199,8 @@
   .side-btn {
     padding: 8px 12px;
     font-size: 14px;
-    min-width: 60px;
-    border-radius: 12px;
+    min-width: auto; /* GÜNCELLE: Sabit genişliği kaldır */
+    flex-shrink: 1;  /* EKLE: Gerekirse buton biraz daralsın */
   }
 
   .flip-clock {
@@ -218,7 +221,8 @@
 /* Çok küçük telefon */
 @media (max-width: 400px) {
   .countdown-row {
-    gap: 5px;
+    gap: 8px; /* Boşluğu biraz daha daralt */
+    justify-content: space-around; /* Elemanları ekrana yay */
   }
 
   .side-btn {
@@ -238,4 +242,4 @@
   .flip-clock__slot {
     font-size: 10px;
   }
-}
+}}
