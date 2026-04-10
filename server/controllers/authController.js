@@ -31,16 +31,15 @@ export const kayitOl = async (req, res) => {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    // djdkdk
 
     const mailOptions = {
-      from: process.env.SENDER_MAIL,
+      from: `"Step" <${process.env.SENDER_MAIL}>`,
       to: email,
       subject: "hoşgeldiniz",
       text: `
         Merhaba ${name},
-        Kaydınız başarıyla tamamlandı!
-       Giriş yapmak için e-posta doğrulayın. Doğrulama kodunuz: 
+        Kayıt olmak için otp gönderiyoruz.
+        Giriş yapmak için e-posta doğrulayın. 
       `,
     };
 
@@ -125,7 +124,7 @@ export const sendVerifyOtp = async (req, res) => {
     await user.save();
 
     const mailOption = {
-      from: process.env.SENDER_MAIL,
+      from: `"Step" <${process.env.SENDER_MAIL}>`,
       to: user.email,
       subject: "hoşgeldiniz",
       text: `
@@ -202,7 +201,7 @@ export const sendResetOtp = async (req, res) => {
     user.resetOtpExpireAt = Date.now() + 15 * 60 * 1000;
     await user.save();
     const mailOption = {
-      from: process.env.SENDER_MAIL,
+      from: `"Step" <${process.env.SENDER_MAIL}>`,
       to: user.email,
       subject: "hoşgeldiniz",
       text: `
