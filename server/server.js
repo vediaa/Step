@@ -12,7 +12,9 @@ import examRoutes from "./routes/examRoutes.js";
 import targetRoutes from "./routes/targetRoutes.js"; 
 import taskRoutes from "./routes/taskRoutes.js";
 import progressRoutes from "./routes/progressRoutes.js";
-import questionRoutes from "./routes/questionRoutes.js"
+import questionRoutes from "./routes/questionRoutes.js";
+import question_dbRoutes from "./routes/question_dbRoutes.js";
+
 
 
 dotenv.config();
@@ -63,7 +65,7 @@ app.use("/api/progress", progressRoutes);
 app.use("/api/questions", questionRoutes);
 
 
-
+app.use("/api/questions_db", question_dbRoutes);
 //app.use("/api/soru", soruRoutes);
 
 app.get("/", (req, res) => {

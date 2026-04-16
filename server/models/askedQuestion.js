@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { atlasConnection } from "../config/db.js";
+/* import { atlasConnection } from "../config/mongoDB.js"; */
 
 const AskedQuestionSchema = new mongoose.Schema(
   {
@@ -57,8 +57,8 @@ const AskedQuestionSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const AskedQuestion = atlasConnection.model(
-  "AskedQuestion",
+const AskedQuestion = mongoose.model(
+  "questions", // <-- İŞTE BÜTÜN SİHİR BURADA!
   AskedQuestionSchema
 );
 

@@ -2,8 +2,6 @@ import jwt from "jsonwebtoken";
 
 const userAuth = async (req, res, next) => {
 
-
-
   let token;
 
   // 1. Önce Header kontrolü (Frontend'den Bearer Token olarak gelirse)
