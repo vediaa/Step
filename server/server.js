@@ -27,7 +27,8 @@ const allowedOrigins = [process.env.FRONTEND_URL]; //sadece izin verilen domainl
 // Middleware'ler
 app.use(
   cors({
-    origin:'http://localhost:5173' ,//allowedOrigins
+    origin: true, // Her yerden gelen isteğe izin ver (Mobil + Web için şart)
+    //origin:'http://localhost:5173' ,//allowedOrigins
     credentials: true, //cokkie için
   })
 );
@@ -66,9 +67,9 @@ app.use("/api/questions", questionRoutes);
 //app.use("/api/soru", soruRoutes);
 
 app.get("/", (req, res) => {
-  res.send("API çalışıyor (harikasın)");
+  res.send("API çalışıyor ");
 });
 
-app.listen(PORT, () =>
-  console.log(`Sunucu http://localhost:${PORT} adresinde çalışıyor`)
+app.listen(PORT,"0.0.0.0", () =>
+  console.log(`Sunucu her yere açık http://localhost:${PORT} adresinde çalışıyor`)
 );
