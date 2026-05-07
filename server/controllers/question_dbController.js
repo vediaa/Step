@@ -3,7 +3,7 @@ import { processQuestion } from "../services/questionService.js";
 export const askQuestion = async (req, res) => {
   try {
     const { sourceQuestionId, ders } = req.body;
-    const studentId = req.user._id; // middleware'den geliyor
+    const studentId = req.user._id;
 
     if (!req.file) {
       return res.status(400).json({ message: "Fotoğraf gerekli" });
@@ -16,20 +16,35 @@ export const askQuestion = async (req, res) => {
       ders: ders || "Genel",
     });
 
-    if (result.isDuplicate) {
+    // Daha önce sorulmuş ve cevaplanmış
+    if (result.isDuplicate && result.answered) {
       return res.status(200).json({
         success: true,
-        isDuplicate: true,
-        message: "Bu soru daha önce çözülmüş!",
+        status: "duplicate_answered",
+        message: "Bu soru daha önce çözülmüş, cevap aşağıda!",
         answer: result.answer,
+        extractedText: result.extractedText,
       });
     }
 
+    // Daha önce sorulmuş ama henüz cevaplanmamış
+    if (result.isDuplicate && !result.answered) {
+      return res.status(200).json({
+        success: true,
+        status: "duplicate_pending",
+        message: result.message,
+        linkedQuestionId: result.linkedQuestionId,
+        extractedText: result.extractedText,
+      });
+    }
+
+    // Yeni soru, öğretmene gönderildi
     return res.status(201).json({
       success: true,
-      isDuplicate: false,
+      status: "sent_to_teacher",
       message: "Soru öğretmene iletildi",
       questionId: result.questionId,
+      extractedText: result.extractedText,
     });
 
   } catch (error) {

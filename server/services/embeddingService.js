@@ -109,22 +109,25 @@ export const getEmbedding = async (text) => {
 };
  */
 
-import { pipeline } from '@xenova/transformers';
+import { pipeline } from "@xenova/transformers";
 
 let extractor = null;
 
 export const getEmbedding = async (text) => {
   try {
     if (!extractor) {
-      console.log("⏳ Vektörleştirme motoru M2 işlemcinde hazırlanıyor...");
-      extractor = await pipeline('feature-extraction', 'Xenova/all-mpnet-base-v2');
+      console.log("⏳ Embedding motoru yükleniyor...");
+      extractor = await pipeline("feature-extraction", "Xenova/all-mpnet-base-v2");
+      console.log("✅ Embedding motoru hazır");
     }
-    const output = await extractor(text, { pooling: 'mean', normalize: true });
+
+    const output = await extractor(text, { pooling: "mean", normalize: true });
     const embedding = Array.from(output.data);
-    console.log("✅ Başardık Vedia! Vektör Boyutu:", embedding.length);
+    console.log("✅ Vektör boyutu:", embedding.length);
     return embedding;
+
   } catch (error) {
-    console.error("❌ Hata:", error);
+    console.error("❌ Embedding hatası:", error);
     throw error;
   }
 };

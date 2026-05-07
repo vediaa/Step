@@ -1,11 +1,9 @@
 import AskedQuestion from "../models/askedQuestion.js";
 import { extractTextFromImage } from "./visionService.js";
 import { getEmbedding } from "./embeddingService.js";
-import { atlasConnection } from "../config/mongoDB.js";
 
-const SIMILARITY_THRESHOLD = 0.85;
+const SIMILARITY_THRESHOLD = 0.95;
 
-// Benzer soru ara
 const findSimilarQuestion = async (embedding) => {
   const results = await AskedQuestion.aggregate([
     {
@@ -21,6 +19,7 @@ const findSimilarQuestion = async (embedding) => {
       $project: {
         extractedText: 1,
         answer: 1,
+        isDuplicate: 1,
         score: { $meta: "vectorSearchScore" },
       },
     },
@@ -33,7 +32,6 @@ const findSimilarQuestion = async (embedding) => {
   return null;
 };
 
-// Ana fonksiyon
 export const processQuestion = async ({
   imageBuffer,
   studentId,
@@ -49,20 +47,33 @@ export const processQuestion = async ({
   // 3. Benzer soru var mı?
   const similar = await findSimilarQuestion(embedding);
 
-  if (similar && similar.answer?.text) {
-    // Duplicate! Öğretmene gitme
-    console.log("Duplicate bulundu, skor:", similar.score);
+  if (similar) {
+    console.log("🔁 Duplicate bulundu, skor:", similar.score);
+
+    // Cevabı olan bir duplicate
+    if (similar.answer?.text) {
+      return {
+        isDuplicate: true,
+        answered: true,
+        answer: similar.answer,
+        extractedText,
+      };
+    }
+
+    // Benzer soru var ama henüz cevaplanmamış
     return {
       isDuplicate: true,
-      answer: similar.answer,
+      answered: false,
+      linkedQuestionId: similar._id,
       extractedText,
+      message: "Bu soru zaten öğretmene iletildi, cevap bekleniyor.",
     };
   }
 
-  // 4. Yeni soru - kaydet ve öğretmene gönder
+  // 4. Yeni soru — kaydet ve öğretmene gönder
   const asked = await AskedQuestion.create({
     studentId,
-    sourceQuestionId,
+    sourceQuestionId: sourceQuestionId || null,
     imageUrl: imageBuffer.toString("base64"),
     extractedText,
     embedding,
@@ -71,7 +82,7 @@ export const processQuestion = async ({
     isDuplicate: false,
   });
 
-  console.log("Yeni soru kaydedildi:", asked._id);
+  console.log("✅ Yeni soru kaydedildi:", asked._id);
 
   return {
     isDuplicate: false,

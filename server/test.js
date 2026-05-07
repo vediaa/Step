@@ -18,7 +18,7 @@ const test = async () => {
     console.log("✅ Bağlantılar hazır!");
 
     // Dosya adının soru1.jpg olduğundan emin ol (Veya test.jpg hangisiyse düzelt)
-    const imageBuffer = fs.readFileSync("./soru1.jpg");
+    const imageBuffer = fs.readFileSync("./yeni.jpg");
 
     // 2. Vision API - Fotoğrafı Oku
     console.log("📷 Vision API fotoğrafı analiz ediyor...");
@@ -49,7 +49,7 @@ const test = async () => {
     ]).toArray();
 
     // --- KRİTİK MANTIK DÜZENLEMESİ BURASI ---
-    const threshold = 0.90; // %90 benzerlik sınırı
+    const threshold = 0.95; // %95 benzerlik sınırı
     let isDuplicate = false;
 
     if (results.length > 0 && results[0].score > threshold) {
@@ -58,7 +58,7 @@ const test = async () => {
     }
 
     if (!isDuplicate) {
-      console.log("🆕 Bu soru yeni bir soru olarak algılandı. Atlas'a kaydediliyor...");
+      console.log(`🆕 Bu soru yeni bir soru olarak algılandı. benzerlik:${(results[0].score * 100).toFixed(2)}%) Atlas'a kaydediliyor...`);
       
       await atlasConnection.collection("questions").insertOne({
         text: text,
