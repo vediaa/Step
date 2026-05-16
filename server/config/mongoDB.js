@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+/* import mongoose from "mongoose";
 
 
 // Atlas için ayrı, Local için ayrı bağlantı değişkenleri oluşturuyoruz
@@ -20,4 +20,35 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+export default connectDB;
+ */
+
+import mongoose from "mongoose";
+
+export let atlasConnection;
+
+const connectDB = async () => {
+try {
+
+
+// ANA DATABASE
+await mongoose.connect(process.env.MONGO_URI);
+
+console.log("Main MongoDB Connected");
+
+
+// VECTOR DATABASE
+atlasConnection = mongoose.createConnection(process.env.ATLAS_URI);
+
+await atlasConnection.asPromise();
+
+console.log("Atlas Vector DB Connected");
+
+
+} catch (error) {
+console.log(error);
+process.exit(1);
+}
+};
+
 export default connectDB;

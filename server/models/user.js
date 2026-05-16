@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 const UserTargetSchema = new mongoose.Schema(
   {
     branch: {
@@ -83,12 +84,36 @@ const UserSchema = new mongoose.Schema(
     sifreSifirlaSonTarih: { type: Date },
      // 👇 YENİ EKLEDİKLERİMİZ
     targets:UserTargetSchema,
-    stats:UserStatsSchema
+    stats:UserStatsSchema,
+    // ─── YENİ: Rol Sistemi ──────────────────────────────────────────────────
+    // "student" → öğrenci (varsayılan)
+    // "teacher" → öğretmen
+    // "admin"   → yönetici
+
+    role: {
+      type: String,
+      enum: ["student", "teacher", "admin"],
+      default: "student",
+    },
+ 
+    // Öğretmense hangi dersleri veriyor
+    // Örn: ["Matematik", "Geometri"]
+    dersler: {
+      type: [String],
+      default: [],
+    },
+ 
+    // Öğretmen için kısa biyografi (opsiyonel)
+    biyografi: {
+      type: String,
+      default: "",
+    },
   },
   { timestamps: true }
   //Bir verinin ne zaman oluşturulduğunu ve ne zaman değiştirildiğini otomatik bilmek
 );
 
+ 
 //Eğer mongoose.models içinde "user" (veya "Kullanici") modeli zaten varsa, yeniden oluşturma → onu kullan.
-const User = mongoose.models.user || mongoose.model("user", UserSchema); //mongo baş harfi kü.ültüp sonuna s ekleyecek
+const User = mongoose.models.user || mongoose.model("user", UserSchema); //mongo baş harfi kü.ültüp sonunas ekleyecek 
 export default User;

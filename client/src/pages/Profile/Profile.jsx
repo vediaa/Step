@@ -1,275 +1,285 @@
 import { useState, useEffect } from "react";
-import { FiUser, FiMail, FiLock } from "react-icons/fi";
-import Card from "../../components/Card/Card";
+import {
+  FiUser,
+  FiMail,
+  FiLock,
+  FiLogOut,
+  FiCheckCircle,
+  FiAlertCircle,
+} from "react-icons/fi";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
-import OtpInput from "../../components/OtpInput/OtpInput"; // DİKKAT: Kutucuk bileşenimizi ekledik!
+import OtpInput from "../../components/OtpInput/OtpInput";
+import { useAuth } from "../../context/AuthContext";
 import "./Profile.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
+
+const authFetch = (url, options = {}) => {
+  const token = localStorage.getItem("token");
+  return fetch(url, {
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+      ...options.headers,
+    },
+  });
+};
+
 const Profile = () => {
-  const [userData, setUserData] = useState({ name: "", email: "" });
+  const { logout, user } = useAuth();
+
+  const [userData, setUserData] = useState({ name: "", email: "", role: "" });
   const [passwords, setPasswords] = useState({
     otp: "",
     newPassword: "",
     confirmPassword: "",
   });
   const [otpGonderildi, setOtpGonderildi] = useState(false);
-  const [mesaj, setMesaj] = useState("");
+  const [mesaj, setMesaj] = useState({ text: "", type: "" }); // type: "success" | "error"
+  const [sifrePanelAcik, setSifrePanelAcik] = useState(false);
 
-  // 1. PROFİLİ GETİR
+  // ── Profil yükle ──────────────────────────────────────────────────────────
   useEffect(() => {
-    const profiliGetir = async () => {
-      try {
-        const res = await fetch("http://localhost:5001/api/user/data", {
-          method: "GET",
-          credentials: "include",
+    if (user) {
+      setUserData({
+        name: user.ad || "",
+        email: user.email || "",
+        role: user.role || "",
+      });
+      return;
+    }
+    const load = async () => {
+      const res = await authFetch(`${API_URL}/user/data`);
+      const data = await res.json();
+      if (data.success) {
+        setUserData({
+          name: data.userData.ad || "",
+          email: data.userData.email || "",
+          role: data.userData.role || "",
         });
-        const data = await res.json();
-        if (data.success) {
-          setUserData({ name: data.userData.ad, email: data.userData.email });
-        }
-      } catch (error) {
-        console.error("Profil bilgileri alınamadı:", error);
       }
     };
-    profiliGetir();
-  }, []);
+    load();
+  }, [user]);
 
-  const handleChange = (e) => {
-    setPasswords({ ...passwords, [e.target.name]: e.target.value });
+  const rolLabel = userData.role === "teacher" ? "Öğretmen" : "Öğrenci";
+
+  const showMesaj = (text, type = "success") => {
+    setMesaj({ text, type });
+    setTimeout(() => setMesaj({ text: "", type: "" }), 3500);
   };
 
+  // ── Profil güncelle ───────────────────────────────────────────────────────
   const handleUpdateProfile = async () => {
-    try {
-      const res = await fetch("http://localhost:5001/api/user/update", {
-        method: "PUT", // Güncelleme işlemi olduğu için PUT veya POST olabilir
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ad: userData.name }), // Sadece değişen adı gönderiyoruz
-      });
-      const data = await res.json();
-
-      if (data.success) {
-        alert("Profil bilgileriniz başarıyla güncellendi!");
-      } else {
-        alert(data.message || "Güncelleme başarısız.");
-      }
-    } catch (error) {
-      alert("Sunucuya bağlanılamadı.");
-    }
+    const res = await authFetch(`${API_URL}/user/update`, {
+      method: "PUT",
+      body: JSON.stringify({ ad: userData.name }),
+    });
+    const data = await res.json();
+    if (data.success) showMesaj("Profil güncellendi.");
+    else showMesaj(data.message || "Güncelleme başarısız.", "error");
   };
 
-  // 3. ÇIKIŞ YAP
-  const handleLogout = async () => {
-    try {
-      const res = await fetch("http://localhost:5001/api/auth/cikis", {
-        method: "GET",
-        credentials: "include",
-      });
-      const data = await res.json();
-      if (data.success) {
-        window.location.href = "/login";
-      }
-    } catch (error) {
-      console.error("Çıkış hatası:", error);
-    }
-  };
-
-  // 4. ŞİFRE DEĞİŞTİRME İÇİN OTP GÖNDER
+  // ── OTP gönder ────────────────────────────────────────────────────────────
   const handleSendOtp = async () => {
-    try {
-      const res = await fetch("http://localhost:5001/api/auth/send-reset-OTP", {
-        // Backend'deki rotanla birebir aynı olmalı
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: userData.email }),
-      });
-      const data = await res.json();
-
-      if (data.success || data.succes) {
-        // Backend'de 'succes' yazma ihtimaline karşı :)
-        setOtpGonderildi(true);
-        setMesaj("Mailinize 6 haneli doğrulama kodu gönderildi!");
-      } else {
-        setMesaj(data.message);
-      }
-    } catch (error) {
-      setMesaj("Kod gönderilirken hata oluştu.");
+    const res = await fetch(`${API_URL}/auth/send-reset-OTP`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: userData.email }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      setOtpGonderildi(true);
+      showMesaj("Doğrulama kodu e-postanıza gönderildi.");
+    } else {
+      showMesaj(data.message || "Kod gönderilemedi.", "error");
     }
   };
 
-  // 5. ŞİFREYİ GÜNCELLE
+  // ── Şifre sıfırla ─────────────────────────────────────────────────────────
   const handlePasswordReset = async (e) => {
     e.preventDefault();
+    if (passwords.newPassword !== passwords.confirmPassword)
+      return showMesaj("Şifreler eşleşmiyor.", "error");
+    if (passwords.otp.length !== 6)
+      return showMesaj("6 haneli kodu eksiksiz girin.", "error");
 
-    if (passwords.newPassword !== passwords.confirmPassword) {
-      return setMesaj("Yeni şifreler birbiriyle eşleşmiyor!");
-    }
-    if (passwords.otp.length !== 6) {
-      return setMesaj("Lütfen 6 haneli kodu eksiksiz girin.");
-    }
-
-    try {
-      const res = await fetch("http://localhost:5001/api/auth/send-password", {
-        // Backend rotana göre düzenle
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: userData.email,
-          otp: passwords.otp,
-          newPassword: passwords.newPassword,
-        }),
-      });
-      const data = await res.json();
-
-      if (data.success || data.succes) {
-        setMesaj("Şifreniz başarıyla değiştirildi!");
-        setOtpGonderildi(false);
-        setPasswords({ otp: "", newPassword: "", confirmPassword: "" });
-      } else {
-        setMesaj(data.message);
-      }
-    } catch (error) {
-      setMesaj("Şifre güncellenirken hata oluştu.");
+    const res = await fetch(`${API_URL}/auth/send-password`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: userData.email,
+        otp: passwords.otp,
+        newPassword: passwords.newPassword,
+      }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      showMesaj("Şifreniz değiştirildi.");
+      setOtpGonderildi(false);
+      setSifrePanelAcik(false);
+      setPasswords({ otp: "", newPassword: "", confirmPassword: "" });
+    } else {
+      showMesaj(data.message || "Şifre değiştirilemedi.", "error");
     }
   };
 
   return (
     <div className="profile-page">
-      <div className="profile-header">
-        {/*<h1 className="page-title">Profil</h1>*/}
-      </div>
-
-      <div className="profile-content">
-        <div className="profile-avatar">
-          <div className="avatar-circle">
-            <FiUser />
+      <div className="profile-container">
+        {/* ── Avatar + İsim Kartı ─────────────────────────────────────────── */}
+        <div className="profile-hero-card">
+          <div className="profile-avatar-wrap">
+            <div className="profile-avatar">
+              {userData.name ? (
+                userData.name.charAt(0).toUpperCase()
+              ) : (
+                <FiUser size={32} />
+              )}
+            </div>
           </div>
+          <div className="profile-hero-info">
+            <h1 className="profile-hero-name">{userData.name || "—"}</h1>
+            <span className="profile-role-badge">{rolLabel}</span>
+          </div>
+          <button className="profile-logout-btn" onClick={logout}>
+            <FiLogOut size={16} />
+            <span>Çıkış Yap</span>
+          </button>
         </div>
 
-        <Card className="profile-info-card">
-          <h2 className="section-title">Kullanıcı Bilgileri</h2>
+        {/* ── Mesaj Bandı ─────────────────────────────────────────────────── */}
+        {mesaj.text && (
+          <div className={`profile-mesaj ${mesaj.type}`}>
+            {mesaj.type === "error" ? (
+              <FiAlertCircle size={16} />
+            ) : (
+              <FiCheckCircle size={16} />
+            )}
+            {mesaj.text}
+          </div>
+        )}
+
+        {/* ── Hesap Bilgileri Kartı ────────────────────────────────────────── */}
+        <div className="profile-card">
+          <h2 className="profile-card-title">Hesap Bilgileri</h2>
 
           <Input
             type="text"
             name="name"
-            value={userData.name || ""}
+            label="Ad Soyad"
+            placeholder="Adınız ve Soyadınız"
+            value={userData.name}
             onChange={(e) => setUserData({ ...userData, name: e.target.value })}
             icon={<FiUser />}
-            label="Ad Soyad"
           />
 
           <Input
             type="email"
             name="email"
-            value={userData.email || ""}
-            readOnly={true}
-            icon={<FiMail />}
             label="E-posta"
+            value={userData.email}
+            readOnly
+            icon={<FiMail />}
           />
 
-          <div className="profile-actions">
-            {/* DİKKAT: Güncelleme fonksiyonunu buraya bağladık */}
-            <Button variant="logoblue" onClick={handleUpdateProfile}>
-              Bilgileri Güncelle
-            </Button>
-            <Button variant="outline" onClick={handleLogout}>
-              Çıkış Yap
-            </Button>
-          </div>
-        </Card>
+          <Button variant="yellow" fullWidth onClick={handleUpdateProfile}>
+            Bilgileri Kaydet
+          </Button>
+        </div>
 
-        <Card className="password-card">
-          <h2 className="section-title">Şifre Değiştir</h2>
+        {/* ── Şifre Değiştir Kartı ─────────────────────────────────────────── */}
+        <div className="profile-card">
+          <button
+            className="profile-section-toggle"
+            onClick={() => setSifrePanelAcik(!sifrePanelAcik)}
+          >
+            <h2 className="profile-card-title" style={{ margin: 0 }}>
+              Şifre Değiştir
+            </h2>
+            <span className="profile-toggle-icon">
+              {sifrePanelAcik ? "▲" : "▼"}
+            </span>
+          </button>
 
-          {mesaj && (
-            <p
-              className="form-message"
-              style={{
-                color: "var(--primary-color)",
-                marginBottom: "15px",
-                textAlign: "center",
-              }}
-            >
-              {mesaj}
-            </p>
-          )}
-
-          {!otpGonderildi ? (
-            <div className="otp-request-section">
-              <p
-                style={{ marginBottom: "15px", color: "var(--text-secondary)" }}
-              >
-                Şifrenizi değiştirmek için e-posta adresinize bir doğrulama kodu
-                göndermemiz gerekiyor.
-              </p>
-              <Button
-                type="button"
-                variant="yellow"
-                onClick={handleSendOtp}
-                fullWidth
-              >
-                Doğrulama Kodu Gönder
-              </Button>
-            </div>
-          ) : (
-            <form onSubmit={handlePasswordReset}>
-              <p
-                style={{
-                  color: "#6b7280",
-                  fontSize: "14px",
-                  marginBottom: "10px",
-                }}
-              >
-                E-postanıza gelen kodu girin:
-              </p>
-
-              {/* DİKKAT: Düz Input yerine kendi OtpInput bileşenimizi koyduk! */}
-              <OtpInput
-                length={6}
-                onOtpSubmit={(code) =>
-                  setPasswords({ ...passwords, otp: code })
-                }
-              />
-
-              <div style={{ marginTop: "20px" }}>
-                <Input
-                  type="password"
-                  name="newPassword"
-                  placeholder="Yeni Şifre (en az 6 karakter)"
-                  value={passwords.newPassword}
-                  onChange={handleChange}
-                  icon={<FiLock />}
-                />
-
-                <Input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Yeni Şifre Tekrar"
-                  value={passwords.confirmPassword}
-                  onChange={handleChange}
-                  icon={<FiLock />}
-                />
-              </div>
-
-              <div
-                className="password-actions"
-                style={{ display: "flex", gap: "10px", marginTop: "15px" }}
-              >
-                <Button type="submit" variant="primary" fullWidth>
-                  Onayla
-                </Button>
-                <Button
-                  type="button"
-                  variant="secondary"
-                  onClick={() => setOtpGonderildi(false)}
+          {sifrePanelAcik && (
+            <div className="profile-pwd-content">
+              {!otpGonderildi ? (
+                <>
+                  <p className="profile-pwd-hint">
+                    Şifrenizi değiştirmek için önce e-posta adresinize bir
+                    doğrulama kodu gönderilecek.
+                  </p>
+                  <Button variant="yellow" fullWidth onClick={handleSendOtp}>
+                    Doğrulama Kodu Gönder
+                  </Button>
+                </>
+              ) : (
+                <form
+                  onSubmit={handlePasswordReset}
+                  className="profile-pwd-form"
                 >
-                  İptal
-                </Button>
-              </div>
-            </form>
+                  <p className="profile-pwd-hint">
+                    E-postanıza gelen 6 haneli kodu girin:
+                  </p>
+                  <OtpInput
+                    length={6}
+                    onOtpSubmit={(code) =>
+                      setPasswords({ ...passwords, otp: code })
+                    }
+                  />
+                  <Input
+                    type="password"
+                    name="newPassword"
+                    placeholder="Yeni Şifre (en az 6 karakter)"
+                    value={passwords.newPassword}
+                    onChange={(e) =>
+                      setPasswords({
+                        ...passwords,
+                        newPassword: e.target.value,
+                      })
+                    }
+                    icon={<FiLock />}
+                  />
+                  <Input
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Yeni Şifre Tekrar"
+                    value={passwords.confirmPassword}
+                    onChange={(e) =>
+                      setPasswords({
+                        ...passwords,
+                        confirmPassword: e.target.value,
+                      })
+                    }
+                    icon={<FiLock />}
+                  />
+                  <div className="profile-pwd-actions">
+                    <Button type="submit" variant="yellow" fullWidth>
+                      Onayla
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => {
+                        setOtpGonderildi(false);
+                        setPasswords({
+                          otp: "",
+                          newPassword: "",
+                          confirmPassword: "",
+                        });
+                      }}
+                    >
+                      İptal
+                    </Button>
+                  </div>
+                </form>
+              )}
+            </div>
           )}
-        </Card>
+        </div>
       </div>
     </div>
   );

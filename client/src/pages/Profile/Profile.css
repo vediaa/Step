@@ -1,59 +1,209 @@
+/* Login sayfasıyla aynı renk ve stil sistemi */
+
 .profile-page {
-  padding: 32px;
-  max-width: 800px;
-  margin: 0 auto;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--darkblue);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 24px;
 }
 
-.profile-header {
-  margin-bottom: 32px;
-}
-
-.profile-content {
+.profile-container {
+  width: 100%;
+  max-width: 520px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
+}
+
+/* ── Hero Kartı (Avatar + İsim + Çıkış) ──────────────────────────────────── */
+.profile-hero-card {
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 24px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.profile-avatar-wrap {
+  flex-shrink: 0;
 }
 
 .profile-avatar {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-
-.avatar-circle {
-  width: 120px;
-  height: 120px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
-  /*background-color: var(--bg-tertiary);*/
-  border: 4px solid var(--accent-color);
+  background-color: var(--darkblue);
+  border: 3px solid var(--purple);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 48px;
-  color: var(--accent-color);
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--purple);
 }
 
-.profile-actions {
+.profile-hero-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-hero-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--purple);
+  margin: 0;
+}
+
+.profile-role-badge {
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: 20px;
+  background-color: var(--darkblue);
+  color: var(--neongreen);
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--neongreen);
+  width: fit-content;
+}
+
+.profile-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border-color);
+  background: transparent;
+  color: var(--darkred);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.profile-logout-btn:hover {
+  background-color: var(--darkred);
+  color: white;
+  border-color: var(--darkred);
+}
+
+/* ── Mesaj Bandı ──────────────────────────────────────────────────────────── */
+.profile-mesaj {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1.5px solid transparent;
+}
+
+.profile-mesaj.success {
+  background-color: rgba(30, 174, 152, 0.12);
+  color: var(--neongreen);
+  border-color: rgba(30, 174, 152, 0.3);
+}
+
+.profile-mesaj.error {
+  background-color: rgba(164, 31, 19, 0.1);
+  color: var(--darkred);
+  border-color: rgba(164, 31, 19, 0.25);
+}
+
+/* ── İçerik Kartları ──────────────────────────────────────────────────────── */
+.profile-card {
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 8px 32px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 20px;
+}
+
+/* ── Şifre Toggle ─────────────────────────────────────────────────────────── */
+.profile-section-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.profile-toggle-icon {
+  font-size: 12px;
+  color: var(--grey);
+}
+
+.profile-pwd-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-pwd-hint {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.profile-pwd-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-pwd-actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 24px;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin-top: 8px;
 }
 
-.password-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 16px;
-}
-
+/* ── Responsive ───────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
   .profile-page {
-    padding: 16px;
+    padding: 20px 16px;
   }
 
-  .profile-actions,
-  .password-actions {
+  .profile-hero-card {
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+
+  .profile-card {
+    padding: 24px 20px;
+  }
+
+  .profile-hero-name {
+    font-size: 18px;
+  }
+
+  .profile-pwd-actions {
     grid-template-columns: 1fr;
   }
 }

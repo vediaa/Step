@@ -1,4 +1,4 @@
-import User from "../models/user.js";
+/* import User from "../models/user.js";
 
 //senkron fonksiyon await için async lazım
 export const getUserData = async (req, res) => {
@@ -56,6 +56,57 @@ export const updateProfile = async (req, res) => {
       message: "Profil bilgileriniz başarıyla güncellendi." 
     });
 
+  } catch (error) {
+    return res.json({ success: false, message: error.message });
+  }
+};
+ */
+
+import User from "../models/user.js";
+
+export const getUserData = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.json({ success: false, message: "Kullanıcı bulunamadı" });
+    }
+
+    return res.json({
+      success: true,
+      userData: {
+        ad:                user.name,
+        email:             user.email,
+        isAccountVerified: user.isAccountVerified,
+        // Rol bilgisi — frontend buna göre hangi sayfayı göstereceğine karar verir
+        role:              user.role,
+        dersler:           user.dersler || [],
+      },
+    });
+  } catch (error) {
+    return res.json({ success: false, message: error.message });
+  }
+};
+
+export const updateProfile = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { ad } = req.body;
+
+    if (!ad || ad.trim() === "") {
+      return res.json({ success: false, message: "Lütfen geçerli bir isim girin." });
+    }
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.json({ success: false, message: "Kullanıcı bulunamadı." });
+    }
+
+    user.name = ad;
+    await user.save();
+
+    return res.json({ success: true, message: "Profil başarıyla güncellendi." });
   } catch (error) {
     return res.json({ success: false, message: error.message });
   }
