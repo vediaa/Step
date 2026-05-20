@@ -1,3 +1,4 @@
+
 import express from "express"; //burada başlıyor her şey
 import dotenv from "dotenv";
 import cors from "cors";
@@ -75,3 +76,4 @@ app.get("/", (req, res) => {
 app.listen(PORT,"0.0.0.0", () =>
   console.log(`Sunucu her yere açık http://localhost:${PORT} adresinde çalışıyor`)
 );
+
